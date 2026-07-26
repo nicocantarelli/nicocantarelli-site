@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/en", "destination": "/", "permanent": true },
+    { "source": "/it", "destination": "/", "permanent": true },
+    { "source": "/en/:path*", "destination": "/", "permanent": true },
+    { "source": "/it/:path*", "destination": "/", "permanent": true }
+  ]
+}

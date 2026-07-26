@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicolas Cantarelli — Software Developer & Technical Project Lead</title>
+<meta name="description" content="Software developer and technical project lead. Full-stack web, e-commerce platforms, native macOS applications. Shopify, WordPress, React, Swift.">
+<style>
+  @font-face {
+    font-family: 'Switzer';
+    src: url('/fonts/Switzer-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FAFAFA;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Switzer", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- masthead ---------- */
+  header {
+    padding: 56px 0 28px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .name {
+    font-weight: 700;
+    font-size: clamp(1.35rem, 4vw, 1.9rem);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .role {
+    margin-top: 6px;
+    color: var(--dim);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding: 44px 0; border-bottom: 1px solid var(--hair); }
+  .label {
+    font-size: 0.85rem;
+    color: var(--dim);
+    margin-bottom: 26px;
+  }
+  .intro {
+    font-size: clamp(1.25rem, 3.2vw, 1.65rem);
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    max-width: 44ch;
+  }
+  .intro .quiet { color: var(--dim); }
+
+  /* ---------- work index (inline-image hover) ---------- */
+  .index { border-top: 1px solid var(--hair); }
+  .index a.row {
+    display: block;
+    text-align: center;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--hair);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .line {
+    display: block;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 6vw, 3.3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+  .slot {
+    display: inline-block;
+    width: 0;
+    height: 1.05em;
+    vertical-align: -0.18em;
+    overflow: hidden;
+    transition: width 0.34s cubic-bezier(0.22, 1, 0.36, 1), margin 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .slot img {
+    width: 1.9em;
+    height: 1.05em;
+    object-fit: cover;
+    display: block;
+  }
+  .index a.row:hover .slot,
+  .index a.row:focus-visible .slot {
+    width: 1.9em;
+    margin: 0 0.18em;
+  }
+  .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
+  @media (hover: none) {
+    .slot { width: 1.9em; margin: 0 0.18em; }
+  }
+
+  /* ---------- prose sections ---------- */
+  .prose { max-width: 58ch; color: var(--ink); }
+  .prose p + p { margin-top: 14px; }
+  .prose .quiet { color: var(--dim); }
+  .now-line {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 10px 0;
+  }
+  .now-line + .now-line { border-top: 1px solid var(--hair); }
+  .now-dot {
+    font-weight: 600;
+    font-size: 0.85rem;
+    min-width: 5.5rem;
+  }
+
+  /* ---------- contact / footer ---------- */
+  .contact-mail {
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2px;
+  }
+  .contact-mail:hover { color: var(--dim); border-color: var(--dim); }
+  footer {
+    padding: 36px 0 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="name">Nicolas Cantarelli</p>
+    <p class="role">Software Developer &amp; Technical Project Lead</p>
+  </header>
+
+  <section>
+    <p class="intro">
+      I build the websites, stores and software that businesses run on.
+      <span class="quiet">Full-stack web, e-commerce platforms and native macOS applications, taken from requirements through implementation, testing and deployment.</span>
+    </p>
+  </section>
+
+  <section>
+    <p class="label">Selected work</p>
+    <div class="index">
+      <a class="row" href="https://baudie.com">
+        <span class="line">Baudie<span class="slot"><img src="/images/baudie.webp" alt="Baudie website"></span></span>
+      </a>
+      <a class="row" href="https://tashola.com">
+        <span class="line">Tashola<span class="slot"><img src="/images/tashola.webp" alt="Tashola website"></span></span>
+      </a>
+      <a class="row" href="https://walkfully.com">
+        <span class="line">WalkFully<span class="slot"><img src="/images/walkfully.webp" alt="WalkFully website" loading="lazy"></span></span>
+      </a>
+      <a class="row" href="https://nirupisland.com">
+        <span class="line">Nirup<span class="slot"><img src="/images/nirup.webp" alt="Nirup Island website" loading="lazy"></span>Island</span>
+      </a>
+      <a class="row" href="https://harbourbaydowntown.com">
+        <span class="line">Harbour Bay<span class="slot"><img src="/images/harbourbay.webp" alt="Harbour Bay Downtown website" loading="lazy"></span>Downtown</span>
+      </a>
+      <a class="row" href="https://satqoe.com">
+        <span class="line">Global Satellite<span class="slot"><img src="/images/gss.webp" alt="Global Satellite Solutions website" loading="lazy"></span>Solutions</span>
+      </a>
+      <a class="row" href="https://github.com/nicocantarelli/mimos-ai-main">
+        <span class="line">Mimos<span class="slot"><img src="/images/mimos.webp" alt="Mimos AI website" loading="lazy"></span>AI</span>
+      </a>
+      <a class="row" href="https://timglas.app">
+        <span class="line">Timglas<span class="slot"><img src="/images/timglas.webp" alt="Timglas website" loading="lazy"></span></span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Currently</p>
+    <div class="now-line">
+      <span class="now-dot">Baudie</span>
+      <span>Developing and maintaining the production Shopify storefront: theme, checkout extension and discount function.</span>
+    </div>
+    <div class="now-line">
+      <span class="now-dot">Timglas</span>
+      <span>Building a local-first time tracking app for macOS. Public on GitHub, in active development.</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Services</p>
+    <div class="prose">
+      <p>I take on custom Shopify themes and apps, WordPress builds, React and Next.js applications, native macOS apps in Swift, and platform migrations onto Shopify. Scoping, architecture, development, deployment and support, handled end to end.</p>
+      <p class="quiet">Available for freelance engagements, agency overflow and full-time remote roles.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">About</p>
+    <div class="prose">
+      <p>Based in Argentina (GMT-3, overlapping US and European hours), previously Berlin, Turin and the US. Studied economics in Buenos Aires and software development in Berlin, then co-founded and led development at Lumios Digital, a studio that shipped 15+ production sites for international clients from 2023 to 2026.</p>
+      <p>Claude Code and Codex CLI are wired into every repository I work in. I speak English, Spanish and Italian.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Contact</p>
+    <a class="contact-mail" href="mailto:hello@nicocantarelli.com">hello@nicocantarelli.com</a>
+  </section>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
