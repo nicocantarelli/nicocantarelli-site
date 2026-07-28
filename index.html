@@ -54,7 +54,7 @@
   .name {
     font-weight: 700;
     font-size: clamp(1.2rem, 3.4vw, 1.9rem);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
@@ -73,12 +73,19 @@
   /* hero */
   .fold { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
   .hero { flex: 1; display: flex; align-items: center; padding: 40px 0; border-bottom: none; }
-  .hero p {
+  .hero .hero-line {
     font-weight: 600;
     font-size: clamp(2rem, 6.4vw, 6rem);
     line-height: 1.04;
     letter-spacing: -0.03em;
     max-width: 17ch;
+  }
+  .hero .hero-sub {
+    margin-top: 32px;
+    font-size: 1.35rem;
+    line-height: 1.45;
+    color: var(--dim);
+    max-width: 58ch;
   }
 
   /* work index */
@@ -177,7 +184,10 @@
   </header>
 
   <section class="hero">
-    <p>I build the websites, stores and software that businesses run on.</p>
+    <div>
+      <p class="hero-line">I build digital products that work as well as they look.</p>
+      <p class="hero-sub">Software developer and technical project lead specialising in Shopify, custom web development and native macOS applications. From planning and UX to implementation, integrations and launch.</p>
+    </div>
   </section>
   </div>
 
