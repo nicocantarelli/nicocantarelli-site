@@ -150,6 +150,8 @@
   .now-line { display: flex; gap: 20px; align-items: baseline; padding: 14px 0; font-size: 1.25rem; }
   .now-line + .now-line { border-top: 1px solid var(--hair); }
   .now-dot { font-weight: 600; font-size: 1.25rem; min-width: 8rem; }
+  .now-link { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .now-link:hover { border-color: var(--ink); }
 
   /* contact + footer */
   .contact-head {
@@ -300,7 +302,7 @@
     </div>
     <div class="now-line">
       <span class="now-dot">Timglas</span>
-      <span>Building a local-first time tracking app for macOS. Public on GitHub, in active development.</span>
+      <span>Building a local-first time tracking app for macOS. <a class="now-link" href="https://github.com/nicocantarelli/timglas" target="_blank" rel="noopener">Public on GitHub</a>, in active development.</span>
     </div>
   </section>
 
@@ -322,7 +324,6 @@
     <p class="contact-links">
       <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
     </p>
   </section>
 
