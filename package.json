@@ -1,0 +1,11 @@
+{
+  "name": "nicocantarelli-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gallery": "node scripts/build-gallery.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2"
+  }
+}

@@ -23,6 +23,7 @@
     --sans: "Switzer", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
     color: var(--ink);
@@ -31,128 +32,110 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
-  .page {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .page { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
-  /* ---------- masthead ---------- */
-  header {
-    padding: 56px 0 28px;
-    border-bottom: 2px solid var(--ink);
-  }
+  /* masthead + nav */
+  header { padding: 40px 0 26px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
   .name {
     font-weight: 700;
-    font-size: clamp(1.35rem, 4vw, 1.9rem);
+    font-size: clamp(1.2rem, 3.4vw, 1.6rem);
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
   }
-  .role {
-    margin-top: 6px;
-    color: var(--dim);
-    font-size: 0.95rem;
-  }
+  nav { display: flex; gap: 22px; font-size: 0.9rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: 6px; color: var(--dim); font-size: 0.95rem; }
 
-  /* ---------- sections ---------- */
+  /* sections */
   section { padding: 44px 0; border-bottom: 1px solid var(--hair); }
-  .label {
-    font-size: 0.85rem;
-    color: var(--dim);
-    margin-bottom: 26px;
-  }
-  .intro {
-    font-size: clamp(1.25rem, 3.2vw, 1.65rem);
-    line-height: 1.35;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    max-width: 44ch;
-  }
-  .intro .quiet { color: var(--dim); }
+  .label { font-size: 0.85rem; color: var(--dim); margin-bottom: 26px; }
+  .label .arw { margin-left: 4px; }
 
-  /* ---------- work index (inline-image hover) ---------- */
+  /* hero */
+  .hero { padding: 84px 0 92px; border-bottom: 1px solid var(--hair); }
+  .hero p {
+    font-weight: 600;
+    font-size: clamp(2rem, 6.4vw, 3.9rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    max-width: 17ch;
+  }
+
+  /* work index */
   .index { border-top: 1px solid var(--hair); }
   .index a.row {
-    display: block;
-    text-align: center;
-    padding: 34px 0;
+    display: block; text-align: center; padding: 34px 0;
     border-bottom: 1px solid var(--hair);
-    text-decoration: none;
-    color: var(--ink);
+    text-decoration: none; color: var(--ink);
   }
   .line {
-    display: block;
-    font-weight: 600;
+    display: block; font-weight: 600;
     font-size: clamp(1.9rem, 6vw, 3.3rem);
-    letter-spacing: -0.02em;
-    line-height: 1.08;
+    letter-spacing: -0.02em; line-height: 1.08;
   }
   .slot {
-    display: inline-block;
-    width: 0;
-    height: 1.05em;
-    vertical-align: -0.18em;
-    overflow: hidden;
+    display: inline-block; width: 0; height: 1.05em;
+    vertical-align: -0.18em; overflow: hidden;
     transition: width 0.34s cubic-bezier(0.22, 1, 0.36, 1), margin 0.34s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .slot--mid { width: 0.22em; }
   .slot img {
-    width: 1.9em;
-    height: 1.05em;
-    object-fit: cover;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.34s ease;
+    width: 1.9em; height: 1.05em; object-fit: cover; display: block;
+    opacity: 0; transition: opacity 0.34s ease;
   }
-  .index a.row:hover .slot,
-  .index a.row:focus-visible .slot {
-    width: 1.9em;
-    margin: 0 0.18em;
-  }
-  .index a.row:hover .slot img,
-  .index a.row:focus-visible .slot img { opacity: 1; }
+  .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 1.9em; margin: 0 0.18em; }
+  .index a.row:hover .slot img, .index a.row:focus-visible .slot img { opacity: 1; }
   .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
   @media (hover: none) {
     .slot { width: 1.9em; margin: 0 0.18em; }
     .slot img { opacity: 1; }
   }
 
-  /* ---------- prose sections ---------- */
-  .prose { max-width: 58ch; color: var(--ink); }
+  /* gallery strip (home) */
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .strip img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+  @media (max-width: 760px) { .strip { grid-template-columns: repeat(3, 1fr); } }
+  .more { margin-top: 20px; font-size: 0.9rem; }
+  .more a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .more a:hover { border-color: var(--ink); }
+
+  /* prose */
+  .prose { max-width: 60ch; }
   .prose p + p { margin-top: 14px; }
   .prose .quiet { color: var(--dim); }
-  .now-line {
-    display: flex;
-    gap: 16px;
-    align-items: baseline;
-    padding: 10px 0;
-  }
-  .now-line + .now-line { border-top: 1px solid var(--hair); }
-  .now-dot {
-    font-weight: 600;
-    font-size: 0.85rem;
-    min-width: 5.5rem;
-  }
+  .thesis p { font-size: 1.02rem; }
+  .thesis p:first-child { font-weight: 600; }
 
-  /* ---------- contact / footer ---------- */
+  /* services */
+  .svc { border-top: 1px solid var(--hair); }
+  .svc-row {
+    display: grid; grid-template-columns: 15rem 1fr; gap: 20px;
+    padding: 20px 0; border-bottom: 1px solid var(--hair);
+  }
+  .svc-row h3 { font-size: 1rem; font-weight: 600; }
+  .svc-row p { color: var(--dim); max-width: 52ch; }
+  @media (max-width: 640px) { .svc-row { grid-template-columns: 1fr; gap: 6px; } }
+  .avail { margin-top: 22px; font-size: 0.9rem; color: var(--dim); }
+
+  /* currently */
+  .now-line { display: flex; gap: 16px; align-items: baseline; padding: 10px 0; }
+  .now-line + .now-line { border-top: 1px solid var(--hair); }
+  .now-dot { font-weight: 600; font-size: 0.85rem; min-width: 5.5rem; }
+
+  /* contact + footer */
   .contact-mail {
-    font-size: clamp(1.15rem, 3vw, 1.5rem);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 2px;
+    font-size: clamp(1.15rem, 3vw, 1.5rem); font-weight: 600;
+    letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
+    border-bottom: 2px solid var(--ink); padding-bottom: 2px;
   }
   .contact-mail:hover { color: var(--dim); border-color: var(--dim); }
   footer {
-    padding: 36px 0 48px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: var(--dim);
+    padding: 36px 0 48px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.85rem; color: var(--dim);
   }
   footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
   footer a:hover { color: var(--ink); border-color: var(--ink); }
@@ -162,19 +145,23 @@
 <div class="page">
 
   <header>
-    <p class="name">Nicolas Cantarelli</p>
-    <p class="role">Software Developer &amp; Technical Project Lead</p>
+      <div class="top">
+        <a class="name" href="/">Nicolas Cantarelli</a>
+        <nav>
+          <a href="#work">Work</a>
+          <a href="/gallery">AI Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <p class="role">Software Developer &amp; Technical Project Lead</p>
   </header>
 
-  <section>
-    <p class="intro">
-      I build the websites, stores and software that businesses run on.
-      <span class="quiet">Full-stack web, e-commerce platforms and native macOS applications, taken from requirements through implementation, testing and deployment.</span>
-    </p>
+  <section class="hero">
+    <p>I build the websites, stores and software that businesses run on.</p>
   </section>
 
-  <section>
-    <p class="label">Selected work</p>
+  <section id="work">
+    <p class="label">Selected work <span class="arw">&darr;</span></p>
     <div class="index">
       <a class="row" href="https://baudie.com" target="_blank" rel="noopener">
         <span class="line">Baudie<span class="slot"><img src="/images/baudie.webp" alt="Baudie website"></span></span>
@@ -204,6 +191,51 @@
   </section>
 
   <section>
+    <p class="label">AI Gallery <span class="arw">&darr;</span></p>
+    <div class="strip">
+<!-- strip:auto -->
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27816%27%20height=%271456%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E4E4E1%27/%3E%3C/svg%3E" width="816" height="1456" alt="" loading="lazy">
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%272048%27%20height=%272048%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23DCDCD8%27/%3E%3C/svg%3E" width="2048" height="2048" alt="" loading="lazy">
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271344%27%20height=%27896%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23EAEAE6%27/%3E%3C/svg%3E" width="1344" height="896" alt="" loading="lazy">
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271632%27%20height=%272912%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23D6D6D2%27/%3E%3C/svg%3E" width="1632" height="2912" alt="" loading="lazy">
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27816%27%20height=%271456%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E9E9E5%27/%3E%3C/svg%3E" width="816" height="1456" alt="" loading="lazy">
+      <img class="s" src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271800%27%20height=%272400%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23DFDFDB%27/%3E%3C/svg%3E" width="1800" height="2400" alt="" loading="lazy">
+<!-- /strip:auto -->
+    </div>
+    <p class="more"><a href="/gallery">View AI gallery</a></p>
+  </section>
+
+  <section>
+    <p class="label">Thesis</p>
+    <div class="prose thesis">
+      <p>Companies hiring someone to build a website usually choose between two bad options.</p>
+      <p>An agency gives you a team, and with the team comes a project manager, an account lead, and a designer who hands the work to a developer who was not in the room when it was scoped. You pay for the coordination as much as the work, and every decision passes through several people before it reaches the one typing.</p>
+      <p>A cheap freelancer gives you the opposite problem. You become the project manager. You get what you specified rather than what you needed, because nobody on the other side is thinking about the thing as a whole.</p>
+      <p>I work as one person who takes a project from the first conversation to production and stays after it launches. I scope it, make the architectural decisions, write the code, deploy it, and fix it when something breaks. Nothing is handed off, so nothing is lost in the handoff.</p>
+      <p>That used to mean a lower ceiling on what one person could deliver. It does not anymore. The mechanical parts of the work take a fraction of the time they used to, which leaves the judgment, and the judgment was always the part that mattered.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Services</p>
+    <div class="svc">
+      <div class="svc-row">
+        <h3>Shopify builds and migrations</h3>
+        <p>Custom themes from scratch, checkout extensions, discount functions, app integrations. Migrations from Wix, Squarespace, Lightspeed and similar onto Shopify.</p>
+      </div>
+      <div class="svc-row">
+        <h3>Web applications</h3>
+        <p>React and Next.js front ends, Node and NestJS back ends, Postgres data modeling. WordPress builds where a CMS is the right answer.</p>
+      </div>
+      <div class="svc-row">
+        <h3>Native macOS</h3>
+        <p>Swift and SwiftUI applications, from concept through to a notarized release.</p>
+      </div>
+    </div>
+    <p class="avail">Available for freelance engagements, agency overflow and full-time remote roles. Contact for pricing.</p>
+  </section>
+
+  <section>
     <p class="label">Currently</p>
     <div class="now-line">
       <span class="now-dot">Baudie</span>
@@ -216,22 +248,14 @@
   </section>
 
   <section>
-    <p class="label">Services</p>
-    <div class="prose">
-      <p>I take on custom Shopify themes and apps, WordPress builds, React and Next.js applications, native macOS apps in Swift, and platform migrations onto Shopify. Scoping, architecture, development, deployment and support, handled end to end.</p>
-      <p class="quiet">Available for freelance engagements, agency overflow and full-time remote roles.</p>
-    </div>
-  </section>
-
-  <section>
     <p class="label">About</p>
     <div class="prose">
-      <p>Based in Argentina (GMT-3, overlapping US and European hours), previously Berlin, Turin and the US. Studied economics in Buenos Aires and software development in Berlin, then co-founded and led development at Lumios Digital, a studio that shipped 15+ production sites for international clients from 2023 to 2026.</p>
+      <p>Based in Argentina (GMT-3, overlapping US and European hours), previously Berlin, Turin and the US. Studied economics in Buenos Aires and software development in Berlin, then co-founded and led development at Lumios Digital, a studio that shipped 50+ production sites for international clients from 2023 to 2026.</p>
       <p>Claude Code and Codex CLI are wired into every repository I work in. I speak English, Spanish and Italian.</p>
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <p class="label">Contact</p>
     <a class="contact-mail" href="mailto:hello@nicocantarelli.com">hello@nicocantarelli.com</a>
   </section>
