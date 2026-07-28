@@ -152,7 +152,12 @@
   .now-dot { font-weight: 600; font-size: 1.25rem; min-width: 8rem; }
 
   /* contact + footer */
-  .contact-links { margin-top: 22px; display: flex; gap: 24px; font-size: 1rem; }
+  .contact-head {
+    font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 18px;
+  }
+  .contact-sub { font-size: 1.35rem; color: var(--dim); max-width: 58ch; margin-bottom: 40px; }
+  .contact-links { margin-top: 28px; display: flex; gap: 24px; font-size: 1rem; }
   .contact-links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); padding-bottom: 2px; }
   .contact-links a:hover { border-color: var(--ink); }
   .contact-mail {
@@ -311,6 +316,8 @@
 
   <section id="contact">
     <p class="label">Contact</p>
+    <p class="contact-head">Have something worth building?</p>
+    <p class="contact-sub">Whether you have finished designs, an existing product that needs work or only the beginning of an idea, let’s talk about how to make it real.</p>
     <a class="contact-mail" href="mailto:hello@nicocantarelli.com">hello@nicocantarelli.com</a>
     <p class="contact-links">
       <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a>
