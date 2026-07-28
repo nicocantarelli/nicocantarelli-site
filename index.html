@@ -96,12 +96,20 @@
   }
 
   /* gallery strip (home) */
-  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-  .strip img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
-  @media (max-width: 760px) { .strip { grid-template-columns: repeat(3, 1fr); } }
-  .more { margin-top: 24px; font-size: 1rem; }
-  .more a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
-  .more a:hover { border-color: var(--ink); }
+  .strip-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
+  .strip-head .label { margin-bottom: 0; }
+  .strip-link {
+    font-size: 0.95rem; font-weight: 500; color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+  }
+  .strip-link:hover { color: var(--dim); border-color: var(--dim); }
+  .strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .strip picture { display: block; min-width: 0; }
+  .strip img { width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; display: block; }
+  @media (max-width: 760px) {
+    .strip { grid-template-columns: repeat(2, 1fr); }
+    .strip picture:nth-child(n+5) { display: none; }
+  }
 
   /* prose */
   .prose { max-width: 60ch; }
@@ -193,7 +201,7 @@
   <section>
     <div class="strip-head">
       <p class="label">AI Gallery <span class="arw">&darr;</span></p>
-      <a class="pill" href="/gallery">View gallery <span class="pill__dot">&nearr;</span></a>
+      <a class="strip-link" href="/gallery">View gallery <span class="arw">&nearr;</span></a>
     </div>
     <div class="strip">
 <!-- strip:auto -->
