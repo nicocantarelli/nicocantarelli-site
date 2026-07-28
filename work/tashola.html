@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tashola — Nicolas Cantarelli</title>
+<meta name="description" content="Custom Shopify theme designed and built from scratch for Tashola, a fashion boutique selling online and through a physical showroom.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  ul.spec li:first-child { border-top: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Tashola</h1>
+  </div>
+  <p class="meta">
+    Fashion retail &middot; Design and development &middot; Shopify, Liquid &middot; Lumios Digital &middot;
+    <a href="https://tashola.com" target="_blank" rel="noopener">tashola.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/tashola-storefront.jpg" width="1760" height="1100" alt="Tashola storefront">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>Tashola is a fashion boutique selling online and through a physical showroom. I designed the store and built the theme, at Lumios Digital, from a blank skeleton. No Dawn fork, no page builder, no purchased base.</p>
+      <p>Around 12,800 lines of Liquid across 24 sections, 28 templates and 36 snippets, with vanilla JavaScript modules and per-feature stylesheets and no build step. Roughly 600 commits between late 2024 and mid 2026.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">A different problem to solve</p>
+    <div class="prose">
+      <p>A store with six products has one job: make each product page persuasive. A fashion catalogue has the opposite job. Nobody arrives knowing the SKU they want. They arrive with a vague intention, or none, and the store either helps them find something or loses them.</p>
+      <p>So almost all the weight in this theme sits in getting people to products rather than in the products themselves. The four largest files are the product page, the search, the filters and the cart. That is not an accident of how it grew; it is where the problem was.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Four ways in</p>
+    <div class="prose">
+      <p>Shoppers arrive with different amounts of certainty, and a single navigation pattern serves only one of them. The theme offers four routes into the same catalogue, each matched to a different intent.</p>
+      <p>Someone who knows what they want gets a full-screen <strong>search overlay</strong>. Someone who knows the category uses the <strong>mega menu</strong>, with a mobile drill-down that keeps deep structures usable on a phone. Someone with no particular plan gets a <strong>category grid</strong> to browse visually. And someone already inside a collection narrows with <strong>filters and sort</strong>.</p>
+      <p>They converge on the same collection view, which keeps the code honest: one catalogue, four doors, rather than four half-built experiences.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four routes into the catalogue, by shopper intent">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+    .ln { stroke: #111111; stroke-width: 1; }
+  </style>
+
+  <text class="lb" x="0" y="16">INTENT</text>
+
+  <rect class="bx" x="0" y="30" width="250" height="52"/>
+  <text class="hd" x="16" y="52">Knows the item</text>
+  <text class="bd" x="16" y="70">Search overlay</text>
+
+  <rect class="bx" x="0" y="98" width="250" height="52"/>
+  <text class="hd" x="16" y="120">Knows the category</text>
+  <text class="bd" x="16" y="138">Mega menu</text>
+
+  <rect class="bx" x="0" y="166" width="250" height="52"/>
+  <text class="hd" x="16" y="188">Browsing</text>
+  <text class="bd" x="16" y="206">Category grid</text>
+
+  <rect class="bx" x="0" y="234" width="250" height="52"/>
+  <text class="hd" x="16" y="256">Narrowing</text>
+  <text class="bd" x="16" y="274">Filters and sort</text>
+
+  <rect class="bx" x="440" y="98" width="210" height="120"/>
+  <text class="hd" x="456" y="128">Catalogue</text>
+  <text class="bd" x="456" y="150">One collection view,</text>
+  <text class="bd" x="456" y="168">filters adapted to</text>
+  <text class="bd" x="456" y="186">the collection</text>
+
+  <rect class="bx" x="700" y="126" width="200" height="64"/>
+  <text class="hd" x="716" y="150">Product</text>
+  <text class="bd" x="716" y="172">Cart drawer, wishlist</text>
+
+  <line class="ln" x1="250" y1="56" x2="434" y2="140"/>
+  <line class="ln" x1="250" y1="124" x2="434" y2="150"/>
+  <line class="ln" x1="250" y1="192" x2="434" y2="166"/>
+  <line class="ln" x1="250" y1="260" x2="434" y2="176"/>
+  <polygon points="440,158 432,152 432,164" fill="#111111"/>
+  <line class="ln" x1="650" y1="158" x2="694" y2="158"/>
+  <polygon points="700,158 692,154 692,162" fill="#111111"/>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Filters that know where they are</p>
+    <div class="prose">
+      <p>Filtering a fashion catalogue is not one problem repeated. Filtering by design makes sense in some collections and is meaningless in others, where product type is what matters.</p>
+      <p>So the filter set is decided per collection rather than fixed across the store: the template resolves which filter applies to the collection being viewed, and where a fixed set would be wrong the options are built from the products actually present. The panel itself is a proper dialog, opening over a backdrop, closing on Escape and on backdrop click, with a live count of applied filters on the trigger so the state is never hidden.</p>
+    </div>
+    <figure>
+      <img src="/images/work/tashola-filters.jpg" width="1760" height="1100" alt="Catalogue with the filter panel open" loading="lazy">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">The showroom</p>
+    <div class="prose">
+      <p>Tashola sells in a physical space as well as online, which means the site has a second job that most stores do not: sending people somewhere.</p>
+      <p>The showroom gets its own templates and section rather than a paragraph on a contact page, so the physical side of the business is presented as part of the brand rather than as logistics.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Launching before launching</p>
+    <div class="prose">
+      <p>The store opened in stages. The password page is a built feature rather than Shopify's default: a coming-soon screen with an optional video background and overlay controls, so the brand had somewhere to point people while the catalogue was still being finished.</p>
+      <p>It is a small thing that matters commercially. The window between announcing a store and opening it is when interest is highest, and a stock password page wastes it.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
+    <ul class="spec">
+      <li>AJAX cart drawer with its own section, styles and module</li>
+      <li>Wishlist through Swym, with favorites iconography throughout</li>
+      <li>Customer accounts, account dropdown and gift card support</li>
+      <li>FAQ hub: seven topic sections behind a shared sidebar wrapper</li>
+      <li>Breadcrumbs, pagination, and a hand-built icon set as snippets</li>
+      <li>206 section settings across 26 block types, so content stays editable</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Live and selling. Built at Lumios Digital and maintained through to the studio winding down.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://tashola.com" target="_blank" rel="noopener">Visit tashola.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
