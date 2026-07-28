@@ -136,8 +136,9 @@
   }
   .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
   @media (hover: none) {
-    .slot { width: 2.4em; margin: 0 0.18em; }
-    .slot img { opacity: 1; }
+    .slot { width: 0; margin: 0; }
+    .slot--mid { width: 0.22em; }
+    .slot img { display: none; }
     .slot::after { display: none; }
   }
 
@@ -201,6 +202,34 @@
   }
   footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
   footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; margin-bottom: 24px; }
+    .hero { padding: 24px 0 40px; }
+    .hero .hero-sub { margin-top: 20px; font-size: 1.05rem; max-width: 36ch; }
+    .hero .hero-sub br { display: none; }
+    .index a.row { padding: 1rem 0; }
+    .strip { gap: 8px; }
+    .strip-head { margin-bottom: 24px; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    .thesis p { font-size: 1.05rem; }
+    .svc-row { padding: 16px 0; }
+    .svc-row h3 { font-size: 1.1rem; }
+    .svc-row p { font-size: 1rem; }
+    .avail { margin-top: 22px; font-size: 1rem; }
+    .now-line { padding: 16px 0; font-size: 1rem; }
+    .now-dot { font-size: 1.1rem; }
+    .contact-sub { font-size: 1.05rem; margin-bottom: 28px; }
+    .contact-links { margin-top: 24px; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
 </style>
 </head>
 <body>
@@ -222,7 +251,7 @@
   <section class="hero">
     <div>
       <p class="hero-line">I build digital products that work as well as they look.</p>
-      <p class="hero-sub">Software developer and technical project lead specialising in Shopify,<br>custom web development and native macOS applications.<br>From planning and UX to implementation, integrations and launch.</p>
+      <p class="hero-sub">Software developer and technical project lead specialising in Shopify, <br>custom web development and native macOS applications. <br>From planning and UX to implementation, integrations and launch.</p>
     </div>
   </section>
   </div>
