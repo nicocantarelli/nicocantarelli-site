@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WalkFully — Nicolas Cantarelli</title>
+<meta name="description" content="Brand and content layer built on a commercial Shopify theme for WalkFully, a direct to consumer walking pad brand.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  ul.spec li:first-child { border-top: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>WalkFully</h1>
+  </div>
+  <p class="meta">
+    Direct to consumer &middot; Shopify, Liquid, Klaviyo &middot; Lumios Digital &middot;
+    <a href="https://walkfully.com" target="_blank" rel="noopener">walkfully.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/walkfully-storefront.jpg" width="1760" height="1100" alt="WalkFully storefront">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>WalkFully sells compact under-desk walking pads direct to consumers. Unlike the other Shopify work here, this store did not start from an empty theme. It began on Haven, a commercial base theme, and my job was everything built on top of it.</p>
+      <p>That came to 18 new sections, 9 snippets and 4 templates, roughly 19,000 lines added and 5,500 removed across 60 files. Built at Lumios Digital.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Why start from a base theme</p>
+    <div class="prose">
+      <p>Building a cart, a checkout path, faceted collections and account templates from nothing is weeks of work that produces something a customer has seen a thousand times. None of it differentiates a brand and all of it can go wrong.</p>
+      <p>Starting from a solid commercial theme buys that outright, and spends the budget where it actually moves the business. The tradeoff is that you are now working inside architecture somebody else designed, which is its own discipline.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What the base theme provided and what was built on top">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .bxd { fill: none; stroke: #DDDDDA; stroke-width: 1; stroke-dasharray: 3 4; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+  </style>
+
+  <text class="lb" x="0" y="16">BASE THEME</text>
+  <rect class="bxd" x="0" y="30" width="400" height="120"/>
+  <text class="hd" x="20" y="58">Commerce</text>
+  <text class="bd" x="20" y="82">Cart, checkout path, faceted collections,</text>
+  <text class="bd" x="20" y="100">theme blocks, Section Rendering partials,</text>
+  <text class="bd" x="20" y="118">account templates, base design system</text>
+
+  <text class="lb" x="500" y="16">BUILT ON TOP</text>
+  <rect class="bx" x="500" y="30" width="400" height="120"/>
+  <text class="hd" x="520" y="58">Brand</text>
+  <text class="bd" x="520" y="82">Science explorer, field notes, journal,</text>
+  <text class="bd" x="520" y="100">UGC gallery, team, programme pages,</text>
+  <text class="bd" x="520" y="118">Klaviyo capture, hero and product story</text>
+
+  <rect class="bx" x="0" y="196" width="900" height="90"/>
+  <text class="hd" x="20" y="224">One theme, not two</text>
+  <text class="bd" x="20" y="248">New sections use the base theme's own conventions: its block model, its scroll-animation</text>
+  <text class="bd" x="20" y="266">attributes, its settings patterns. A merchant editing the store cannot tell where the seam is.</text>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">The actual problem</p>
+    <div class="prose">
+      <p>A walking pad is close to a commodity. The specs are comparable across brands, the price is visible, and a store that lists features competes on price alone and loses.</p>
+      <p>So everything I built is the part that is not commerce. Why walking matters, told through an interactive explorer that lets someone move through the product and the reasoning behind it. Field notes and a journal, so the brand has something to say between purchases. A gallery of customers actually using the thing. A programme page around a fourteen day reset, which turns a purchase into a commitment. The base theme sells the object. The layer on top is why anyone would want it.</p>
+    </div>
+    <figure>
+      <img src="/images/work/walkfully-science.jpg" width="1760" height="1100" alt="The interactive science explorer" loading="lazy">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Making the seam invisible</p>
+    <div class="prose">
+      <p>The failure mode when extending a purchased theme is obvious to anyone who has seen it: bolted-on sections that behave differently from everything around them, ignore the theme's settings conventions, and break the moment the base is updated.</p>
+      <p>New sections here use the base theme's own primitives rather than working around them: its block model, its scroll-animation attributes, its settings patterns. The result is a single coherent theme rather than two themes sharing a store, and a merchant editing content cannot tell which sections shipped with the theme and which were written for this brand.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Email capture, done directly</p>
+    <div class="prose">
+      <p>The signup modal talks to Klaviyo's client subscriptions API directly rather than through an app embed, with a reCAPTCHA token attached to each submission to keep bots out of the list.</p>
+      <p>Only public identifiers live in the theme. No private key is ever in code a browser can read, which is the mistake this integration most commonly ships with.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
+    <ul class="spec">
+      <li>Custom hero and product storytelling sections, the largest files in the project</li>
+      <li>Science carousel and scroll-line animation for the education pages</li>
+      <li>Field notes and marketplace picks article templates, with their own cards</li>
+      <li>Team carousel, story sections and promotional banners</li>
+      <li>Marketplace category browsing and platform cards</li>
+      <li>Breadcrumbs, star and quote iconography, journal and blog cards</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Live and selling. Built at Lumios Digital between January and July 2026.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://walkfully.com" target="_blank" rel="noopener">Visit walkfully.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
