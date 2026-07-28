@@ -35,23 +35,23 @@
   .wide { margin: 0; padding: 0 2.6666666667rem; }
 
   /* masthead + nav */
-  header { padding: 40px 0 26px; border-bottom: 2px solid var(--ink); }
+  header { padding: 48px 0 32px; border-bottom: 2px solid var(--ink); }
   .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
   .name {
     font-weight: 700;
-    font-size: clamp(1.2rem, 3.4vw, 1.6rem);
+    font-size: clamp(1.2rem, 3.4vw, 1.9rem);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
   }
-  nav { display: flex; gap: 22px; font-size: 0.9rem; }
+  nav { display: flex; gap: 28px; font-size: 1rem; }
   nav a { color: var(--dim); text-decoration: none; }
   nav a:hover, nav a[aria-current] { color: var(--ink); }
-  .role { margin-top: 6px; color: var(--dim); font-size: 0.95rem; }
+  .role { margin-top: 8px; color: var(--dim); font-size: 1.05rem; }
 
   /* gallery page */
-  .dump { columns: 4; column-gap: 6px; padding: 34px 0 8px; }
+  .dump { columns: 4; column-gap: 6px; padding: 40px 0 8px; }
   .dump picture { display: block; break-inside: avoid; }
   .dump img { width: 100%; height: auto; display: block; margin-bottom: 6px; break-inside: avoid; }
   @media (max-width: 1100px) { .dump { columns: 3; } }
@@ -59,8 +59,8 @@
 
   /* footer */
   footer {
-    padding: 36px 0 48px; display: flex; justify-content: space-between;
-    flex-wrap: wrap; gap: 8px; font-size: 0.85rem; color: var(--dim);
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
   }
   footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
   footer a:hover { color: var(--ink); border-color: var(--ink); }
