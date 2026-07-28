@@ -1,9 +1,10 @@
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
-const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const originalsDir = path.join(root, 'images', 'gallery', 'originals');
 const avifDir = path.join(root, 'images', 'gallery', 'avif');
 const jpgDir = path.join(root, 'images', 'gallery', 'jpg');
