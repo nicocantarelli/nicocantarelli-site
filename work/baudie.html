@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baudie — Nicolas Cantarelli</title>
+<meta name="description" content="Custom Shopify storefront, checkout extension and discount function built for Baudie.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 32px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: 2px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px; padding-bottom: 44px;
+    border-bottom: 1px solid var(--hair);
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 36px; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  ul.spec li:first-child { border-top: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Baudie</h1>
+  </div>
+  <p class="meta">
+    E-commerce &middot; Shopify, Liquid, Preact, GraphQL &middot; 2025 to present &middot;
+    <a href="https://baudie.com" target="_blank" rel="noopener">baudie.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Estorefront%20crop%3C/text%3E%3C/svg%3E" alt="Baudie storefront">
+  </figure>
+
+  <section>
+    <p class="label">The constraint</p>
+    <div class="prose">
+      <p>Almost everything in a Shopify store is yours to shape. You can rebuild the product page, restructure the cart, replace the theme entirely. Checkout is the exception. Theme code does not run there, so the one moment when a customer has already decided to buy is the one moment you cannot reach with the tools you use everywhere else.</p>
+      <p>Baudie wanted to offer a relevant add-on at exactly that moment, and wanted the founder to be able to change what was offered without waiting on a developer.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">The decision</p>
+    <div class="prose">
+      <p>The straightforward version is to build the whole thing in the extension: read the cart, decide what to offer, and apply the discounted price from the client. It is less code and it works in a demo.</p>
+      <p>It is also wrong. Anything running in the browser can be changed by the person running the browser, and a discount decided there is a discount a customer can rewrite. Pricing is not a presentation concern.</p>
+      <p>So the work is split in two. A <strong>Checkout UI Extension</strong>, written in Preact, queries the Storefront GraphQL API for product and variant data and decides what to show, if anything. A <strong>Shopify Discount Function</strong>, running on Shopify's servers, holds the pricing rules and applies them. The extension can suggest. It can never decide what a customer pays.</p>
+      <p>The rules themselves live in metafields rather than in the function's code, so changing an offer is an edit in the Shopify admin rather than a deploy.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture: checkout extension suggests, discount function decides">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+    .ln { stroke: #111111; stroke-width: 1; }
+    .dv { stroke: #111111; stroke-width: 1; stroke-dasharray: 3 4; }
+  </style>
+
+  <text class="lb" x="0" y="14">BROWSER</text>
+  <text class="lb" x="880" y="14" text-anchor="end">SHOPIFY SERVERS</text>
+  <line class="dv" x1="440" y1="26" x2="440" y2="380"/>
+
+  <rect class="bx" x="0" y="40" width="360" height="120"/>
+  <text class="hd" x="20" y="70">Checkout UI Extension</text>
+  <text class="bd" x="20" y="94">Preact</text>
+  <text class="bd" x="20" y="114">Reads the cart, decides what to show</text>
+  <text class="bd" x="20" y="134">Suggests. Never prices.</text>
+
+  <rect class="bx" x="520" y="40" width="360" height="120"/>
+  <text class="hd" x="540" y="70">Storefront GraphQL API</text>
+  <text class="bd" x="540" y="94">Product and variant data</text>
+
+  <rect class="bx" x="520" y="220" width="360" height="120"/>
+  <text class="hd" x="540" y="250">Discount Function</text>
+  <text class="bd" x="540" y="274">Holds the pricing rules</text>
+  <text class="bd" x="540" y="294">Applies them server side</text>
+  <text class="bd" x="540" y="314">Rules defined in metafields</text>
+
+  <line class="ln" x1="360" y1="100" x2="514" y2="100"/>
+  <polygon points="520,100 512,96 512,104" fill="#111111"/>
+  <text class="lb" x="437" y="92" text-anchor="middle">query</text>
+
+  <line class="ln" x1="180" y1="160" x2="180" y2="280"/>
+  <line class="ln" x1="180" y1="280" x2="514" y2="280"/>
+  <polygon points="520,280 512,276 512,284" fill="#111111"/>
+  <text class="lb" x="200" y="272">cart contents</text>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Testing</p>
+    <div class="prose">
+      <p>Discount logic is the kind of code that fails quietly. Nothing errors, nothing appears in a log, and the store simply sells at the wrong price until somebody notices in the numbers weeks later.</p>
+      <p>Pricing and eligibility rules are covered by an automated suite that runs before anything ships. It is the least visible part of the build and the part that lets the founder change offers without asking whether it is safe to.</p>
+    </div>
+    <figure>
+      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271200%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Eextension%20at%20checkout%3C/text%3E%3C/svg%3E" alt="Checkout upsell in place">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">The rest of the build</p>
+    <ul class="spec">
+      <li>Custom Online Store 2.0 theme: 44 modular Liquid sections, 24 JSON templates</li>
+      <li>Metafield-driven product pages, bundles and landing pages</li>
+      <li>Custom AJAX cart drawer with cart-level upsells</li>
+      <li>Klaviyo, Gorgias and Videowise integrations</li>
+      <li>Transactional notification templates in Liquid</li>
+      <li>Releases through Shopify CLI, Git and GitHub</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Ongoing</p>
+    <div class="prose">
+      <p>The relationship started at Lumios Digital and continued independently after the studio wound down. I still develop and maintain the storefront.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://baudie.com" target="_blank" rel="noopener">Visit baudie.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
