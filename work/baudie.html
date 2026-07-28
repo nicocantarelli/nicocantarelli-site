@@ -133,20 +133,60 @@
   </figure>
 
   <section>
-    <p class="label">The constraint</p>
+    <p class="label">Scope</p>
     <div class="prose">
-      <p>Almost everything in a Shopify store is yours to shape. You can rebuild the product page, restructure the cart, replace the theme entirely. Checkout is the exception. Theme code does not run there, so the one moment when a customer has already decided to buy is the one moment you cannot reach with the tools you use everywhere else.</p>
-      <p>Baudie wanted to offer a relevant add-on at exactly that moment, and wanted the founder to be able to change what was offered without waiting on a developer.</p>
+      <p>Baudie sells scented personal care products. The storefront is a custom Shopify theme built from nothing, no Dawn and no purchased base, designed at Lumios Digital and developed entirely by me. Every page on the site is one I built.</p>
+      <p>It runs to roughly 27,000 lines of Liquid across 46 sections, 23 templates and 14 snippets, and I still develop and maintain it.</p>
     </div>
   </section>
 
   <section>
-    <p class="label">The decision</p>
+    <p class="label">The decision that shaped everything</p>
     <div class="prose">
-      <p>The straightforward version is to build the whole thing in the extension: read the cart, decide what to offer, and apply the discounted price from the client. It is less code and it works in a demo.</p>
-      <p>It is also wrong. Anything running in the browser can be changed by the person running the browser, and a discount decided there is a discount a customer can rewrite. Pricing is not a presentation concern.</p>
-      <p>So the work is split in two. A <strong>Checkout UI Extension</strong>, written in Preact, queries the Storefront GraphQL API for product and variant data and decides what to show, if anything. A <strong>Shopify Discount Function</strong>, running on Shopify's servers, holds the pricing rules and applies them. The extension can suggest. It can never decide what a customer pays.</p>
-      <p>The rules themselves live in metafields rather than in the function's code, so changing an offer is an edit in the Shopify admin rather than a deploy.</p>
+      <p>A theme can be built two ways. You can hardcode the pages the brand needs today, which is faster to write and looks identical on launch day. Or you can build a vocabulary of parts and let the brand assemble pages out of them.</p>
+      <p>The first option means every future change comes back to the developer. A new campaign, a reordered homepage, a seasonal hero: all of it is a ticket, a deploy and a wait. The theme is finished the day it ships and slowly becomes a constraint.</p>
+      <p>I built the second. Not because the founder wanted to do her own production work, but because a store that cannot be edited without a developer is a store that stops being edited.</p>
+    </div>
+    <figure>
+      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Etheme%20editor,%20section%20settings%3C/text%3E%3C/svg%3E" alt="Section settings in the Shopify theme editor">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">What that meant in practice</p>
+    <div class="prose">
+      <p>Every section is written to be reused rather than to serve one page. That shows up as <strong>543 settings across the section schemas</strong>, plus 21 repeatable block types. Copy, imagery, colors, layout direction, spacing, link targets and toggles are exposed in the theme editor rather than baked into the markup.</p>
+      <p>Product content is driven by <strong>30 metafields</strong> rather than hardcoded per product. Scent names and notes, bottle sizes, ingredient lists, how-to-use copy and video, card images, portrait crops, hover states, gradient colors, card background and text colors, and the bundle upsell target all live on the product. Adding a product means filling in fields, not writing a template.</p>
+      <p>That combination is why the same section set produces genuinely different page types. The two clinical product lines do not use the standard product page at all; they use a landing page composition, built from the same parts.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">The bundle builder</p>
+    <div class="prose">
+      <p>The hardest single piece is the bundle. A customer picks several scents from a collection, and the page has to keep up: images swap as selections change, the price recalculates, and the whole thing has to arrive in the cart as a coherent order.</p>
+      <p>Most of the work is in what it refuses to offer. The selector reads from a collection rather than a fixed list, so new scents appear automatically, and it filters out anything unavailable or tagged as coming soon before a customer can pick it. An out-of-stock scent that is selectable is a bundle that fails at checkout, and the customer blames the store rather than the inventory.</p>
+      <p>It is built as a listbox with the correct roles and keyboard behavior rather than a styled div, which is the difference between something that looks like a picker and something that works like one.</p>
+    </div>
+    <figure>
+      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Ebundle%20builder,%20scents%20selected%3C/text%3E%3C/svg%3E" alt="Bundle builder with scents selected">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Cart</p>
+    <div class="prose">
+      <p>The side cart is the largest file in the theme. It is a full cart surface rather than a drawer that links to one: line item editing, quantity changes and add-to-cart all run against the Shopify AJAX API without a page load, with upsells rendered inline from product metafields.</p>
+      <p>Getting this right matters more than it sounds. The cart is the last interface between a customer and a purchase, and every reload is somewhere to lose them.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Checkout, and where pricing lives</p>
+    <div class="prose">
+      <p>Checkout is the one surface a theme cannot touch. Theme code does not run there, so the moment a customer has already decided to buy is the moment none of the above applies.</p>
+      <p>The straightforward approach is to build everything into a checkout extension: read the cart, decide what to offer, apply the discounted price from the client. Less code, works in a demo, and wrong. Anything running in the browser can be changed by the person running the browser, and a discount decided there is a discount a customer can rewrite.</p>
+      <p>So it splits into two deployed apps. A <strong>Checkout UI Extension</strong> in Preact queries the Storefront API and decides what to show. A <strong>Shopify Function</strong> compiled to WebAssembly and running on Shopify's infrastructure holds the pricing rules and applies them. The extension can suggest. It can never decide what a customer pays.</p>
     </div>
     <figure class="dia">
       <svg class="diagram" viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture: checkout extension suggests, discount function decides">
@@ -191,25 +231,42 @@
     </figure>
   </section>
 
-  <section style="border-bottom: none;">
-    <p class="label">Testing</p>
+  <section>
+    <p class="label">One metafield, two systems</p>
     <div class="prose">
-      <p>Discount logic is the kind of code that fails quietly. Nothing errors, nothing appears in a log, and the store simply sells at the wrong price until somebody notices in the numbers weeks later.</p>
-      <p>Pricing and eligibility rules are covered by an automated suite that runs before anything ships. It is the least visible part of the build and the part that lets the founder change offers without asking whether it is safe to.</p>
+      <p>Both sides read the same field. A product carrying <strong>custom.upsell_price</strong> is an upsell product, and the value is its deal price. The cart drawer shows it, the checkout extension shows it, and the function charges it.</p>
+      <p>That is what makes new offers a content change rather than a deploy. The one-pack lands at its price and the three-pack at its own, and a future upsell product is covered by filling in a field. The merchant also controls the checkout block itself, with an enable toggle, the heading and the offered variants exposed as settings in the checkout editor, plus an admin panel rendered on the discount's own page.</p>
+      <p>The risk in that arrangement is drift. If the display rule and the pricing rule ever disagree, a customer sees one number and is charged another, which is the worst failure this system could produce. The shared rule is written down as an invariant in both codebases, and the display logic clamps to the variant price, so a mistyped metafield can never show a discount the function will not honor.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">The rules underneath</p>
+    <div class="prose">
+      <p>The deal only applies when the cart also holds at least one product that is not an upsell. Buying the wipes on their own pays full price, which is the difference between an add-on and a permanently discounted product.</p>
+      <p>Discounts are applied per item rather than per line, so any quantity lands exactly at the deal price. And it is deliberately one function rather than several: Shopify applies one automatic discount at a time, so splitting this across multiple discounts would have meant they compete. One function covers every upsell product and every quantity at once.</p>
     </div>
     <figure style="max-width: 880px;">
-      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271200%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Eextension%20at%20checkout%3C/text%3E%3C/svg%3E" alt="Checkout upsell in place">
+      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Echeckout%20upsell,%20live%3C/text%3E%3C/svg%3E" alt="The upsell block in Shopify checkout">
     </figure>
   </section>
 
   <section>
-    <p class="label">The rest of the build</p>
+    <p class="label">Testing</p>
+    <div class="prose">
+      <p>Discount logic fails quietly. Nothing errors, nothing appears in a log, and the store sells at the wrong price until somebody notices it in the numbers weeks later.</p>
+      <p>The pricing and eligibility rules are covered by 25 unit tests, and the function itself by integration tests that build the WebAssembly module and run it against fixture carts: an empty cart, a cart of upsell products only, a cart that should qualify, and the cases where the discount class is absent. Every rule described above has a test that fails if someone changes it.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
     <ul class="spec">
-      <li>Custom Online Store 2.0 theme: 44 modular Liquid sections, 24 JSON templates</li>
-      <li>Metafield-driven product pages, bundles and landing pages</li>
-      <li>Custom AJAX cart drawer with cart-level upsells</li>
-      <li>Klaviyo, Gorgias and Videowise integrations</li>
+      <li>Six self-hosted typefaces, CSS custom properties generated from theme settings</li>
       <li>Transactional notification templates in Liquid</li>
+      <li>Klaviyo, Gorgias and Videowise integrations</li>
+      <li>Affiliate signup, customer care, cookie consent and legal page systems</li>
+      <li>Back-in-stock notify form, review display, press and testimonial sections</li>
       <li>Releases through Shopify CLI, Git and GitHub</li>
     </ul>
   </section>
@@ -217,7 +274,7 @@
   <section>
     <p class="label">Ongoing</p>
     <div class="prose">
-      <p>The relationship started at Lumios Digital and continued independently after the studio wound down. I still develop and maintain the storefront.</p>
+      <p>The relationship started at Lumios Digital and continued independently after the studio wound down. I still build and maintain the storefront.</p>
     </div>
   </section>
 
