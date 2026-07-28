@@ -12,7 +12,7 @@ const indexFile = path.join(root, 'index.html');
 const galleryFile = path.join(root, 'gallery.html');
 
 const MAX_EDGE = 2000;
-const STRIP_COUNT = 6;
+const STRIP_COUNT = 5;
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif', '.tiff', '.tif', '.gif']);
 const DATE_PREFIX = /^\d{4}-\d{2}-\d{2}/;
 
