@@ -155,8 +155,13 @@
   .avail { margin-top: 26px; font-size: 1.15rem; color: var(--dim); }
 
   /* currently */
-  .now-line { display: flex; gap: 24px; align-items: baseline; padding: 24px 0; font-size: 1.25rem; border-bottom: 1px solid var(--hair); }
-  .now-dot { font-weight: 600; font-size: 1.25rem; min-width: 8rem; }
+  .now-line {
+    display: grid; grid-template-columns: 19rem 1fr; gap: 24px;
+    padding: 24px 0; font-size: 1.25rem; color: var(--dim);
+    border-bottom: 1px solid var(--hair);
+  }
+  .now-dot { font-weight: 600; font-size: 1.35rem; color: var(--ink); }
+  @media (max-width: 640px) { .now-line { grid-template-columns: 1fr; gap: 6px; } }
   .now-link { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
   .now-link:hover { border-color: var(--ink); }
 
