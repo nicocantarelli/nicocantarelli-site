@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Bay Downtown — Nicolas Cantarelli</title>
+<meta name="description" content="Custom WordPress block theme designed and built for Harbour Bay Downtown, a waterfront district in Batam, Indonesia.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Harbour Bay Downtown</h1>
+  </div>
+  <p class="meta">
+    Destination &middot; Design and development &middot; WordPress, PHP, Vite &middot; 2026 &middot;
+    <a href="https://harbourbaydowntown.com" target="_blank" rel="noopener">harbourbaydowntown.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/harbourbay-hero.jpg" width="1760" height="1100" alt="Harbour Bay Downtown">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>Harbour Bay Downtown is a waterfront district in Batam, Indonesia: shops, restaurants, hotels, a mall, nightlife, wellness, a ferry terminal and property for sale and lease. It is also where the ferry to Nirup Island departs, which is how I came to build both.</p>
+      <p>I designed the site and built the theme. A custom WordPress block theme, 107 PHP files and around 14,000 lines, with 16 page templates, 67 render patterns and a Vite and Sass build pipeline.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">A district is a directory</p>
+    <div class="prose">
+      <p>Nirup Island is one operator running one place. A commercial district is dozens of independent businesses that share an address and nothing else. Restaurants change their hours, shops close, new tenants open, events happen and then stop being relevant.</p>
+      <p>Which means the real enemy is not the launch, it is month eight. A district site that cannot be kept current becomes actively misleading: a visitor drives across town for a restaurant that closed. So almost every decision in this build is about what happens after handover.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Content that can keep up</p>
+    <div class="prose">
+      <p>Everything that changes is modelled as content rather than written into templates. Listings, events, ferries and buildings each get their own type, so a venue exists once and appears wherever it is relevant: its category page, the map, search, and its own detail page.</p>
+      <p>Populating a directory by hand is its own failure mode, so venues can be imported in bulk from a structured data file, run from the admin rather than the command line. And the surrounding copy, imagery and arrangement sit in <strong>237 Customizer settings across 65 sections</strong>, so seasonal and promotional changes do not need a developer.</p>
+    </div>
+    <figure>
+      <img src="/images/work/harbourbay-listings.jpg" width="1760" height="826" style="aspect-ratio: auto;" alt="Venue listings on the district site, filtered by category" loading="lazy">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Enquiries that do not get lost</p>
+    <div class="prose">
+      <p>The site carries several different asks. Somebody wanting to advertise, somebody enquiring about leasing a unit, somebody with a general question. These reach different teams, and a single contact address means the wrong person triages all of it.</p>
+      <p>Each form validates and sanitises its input, then does two things rather than one. It routes to the recipient for that form type, and it stores the enquiry as a record in the admin with its own list columns and detail view. Email alone is a lossy channel: it bounces, it lands in spam, somebody deletes it. Keeping the record means a lead is never lost because a message failed to arrive.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enquiry routing: form to stored record and to the correct inbox">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+    .ln { stroke: #111111; stroke-width: 1; }
+  </style>
+
+  <text class="lb" x="0" y="16">FORMS</text>
+  <rect class="bx" x="0" y="30" width="210" height="44"/>
+  <text class="hd" x="16" y="58">Advertising</text>
+  <rect class="bx" x="0" y="86" width="210" height="44"/>
+  <text class="hd" x="16" y="114">Sales and leasing</text>
+  <rect class="bx" x="0" y="142" width="210" height="44"/>
+  <text class="hd" x="16" y="170">General contact</text>
+
+  <rect class="bx" x="330" y="76" width="200" height="64"/>
+  <text class="hd" x="346" y="100">Validated</text>
+  <text class="bd" x="346" y="122">Nonce, sanitised</text>
+
+  <rect class="bx" x="640" y="20" width="260" height="76"/>
+  <text class="hd" x="656" y="46">Stored as a record</text>
+  <text class="bd" x="656" y="68">Every enquiry kept in the admin,</text>
+  <text class="bd" x="656" y="86">visible in a list with its own columns</text>
+
+  <rect class="bx" x="640" y="128" width="260" height="76"/>
+  <text class="hd" x="656" y="154">Routed by type</text>
+  <text class="bd" x="656" y="176">Each form reaches the team</text>
+  <text class="bd" x="656" y="194">that actually handles it</text>
+
+  <line class="ln" x1="210" y1="52" x2="324" y2="98"/>
+  <line class="ln" x1="210" y1="108" x2="324" y2="108"/>
+  <line class="ln" x1="210" y1="164" x2="324" y2="120"/>
+  <polygon points="330,108 322,104 322,112" fill="#111111"/>
+  <line class="ln" x1="530" y1="98" x2="634" y2="60"/>
+  <polygon points="640,58 632,54 632,62" fill="#111111"/>
+  <line class="ln" x1="530" y1="118" x2="634" y2="164"/>
+  <polygon points="640,166 632,162 632,170" fill="#111111"/>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">The map, again</p>
+    <div class="prose">
+      <p>Like Nirup, the district needs to be understood spatially, and like Nirup the pins are placed through an admin tool rather than written into code. Having built the pattern once, reusing it here cost almost nothing and saved the same maintenance problem twice.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Built as a block theme</p>
+    <div class="prose">
+      <p>The front end is composed from 67 PHP patterns rendered through the block system, one per page section, which keeps templates thin and makes sections reusable across pages.</p>
+      <p>Styles and scripts are authored as Sass and JavaScript modules and compiled by Vite with content-hashed filenames, resolved at runtime through the build manifest. That means cache-busting is automatic rather than a thing somebody has to remember, which is another decision aimed at month eight rather than launch day.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
+    <ul class="spec">
+      <li>Sixteen page templates: stay, dine, shop, nightlife, wellness, events, ferries, mall, magazine, property, advertising, map, about, contact</li>
+      <li>Ferry schedules and immigration guidance for domestic and international routes</li>
+      <li>Event listings with their own detail pages</li>
+      <li>Category filtering, carousels, tabs and an FAQ widget as reusable components</li>
+      <li>Live contact touchpoints including WhatsApp</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Delivered and live, built in 2026.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://harbourbaydowntown.com" target="_blank" rel="noopener">Visit harbourbaydowntown.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
