@@ -72,6 +72,7 @@
     align-items: start;
   }
   section.split .label { margin-bottom: 0; }
+  section.split .content-col { max-width: 49.9rem; }
   @media (max-width: 720px) {
     section.split { grid-template-columns: 1fr; gap: 20px; }
   }
@@ -108,13 +109,13 @@
     letter-spacing: -0.02em; line-height: 1.08;
   }
   .slot {
-    display: inline-block; width: 0; height: 1.2em;
-    vertical-align: -0.28em; overflow: hidden;
+    display: inline-block; width: 0; height: 1.3275em;
+    vertical-align: -0.34em; overflow: hidden;
     transition: width 0.34s cubic-bezier(0.22, 1, 0.36, 1), margin 0.34s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .slot--mid { width: 0.22em; }
   .slot img {
-    width: 2.4em; height: 1.2em; object-fit: cover; display: block;
+    width: 2.4em; height: 1.3275em; object-fit: cover; display: block;
     opacity: 0; transition: opacity 0.34s ease;
   }
   .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 2.4em; margin: 0 0.18em; }
@@ -281,7 +282,7 @@
 
   <section class="split">
     <p class="label">Services</p>
-    <div>
+    <div class="content-col">
     <div class="svc">
       <div class="svc-row">
         <h3>Shopify Development</h3>
@@ -306,7 +307,7 @@
 
   <section class="split">
     <p class="label">Currently</p>
-    <div>
+    <div class="content-col">
     <div class="now-line">
       <span class="now-dot">Baudie</span>
       <span>Developing and maintaining the production Shopify storefront: theme, checkout extension and discount function.</span>
