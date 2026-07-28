@@ -67,6 +67,14 @@
   /* sections */
   section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
   #work { border-bottom: none; }
+  section.split {
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  section.split .label { margin-bottom: 0; }
+  @media (max-width: 720px) {
+    section.split { grid-template-columns: 1fr; gap: 20px; }
+  }
   .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 36px; }
   .label .arw { margin-left: 4px; }
 
@@ -260,7 +268,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="split">
     <p class="label">Thesis</p>
     <div class="prose thesis">
       <p>Companies hiring someone to build a website or digital product usually face the same trade-off.</p>
@@ -271,8 +279,9 @@
     </div>
   </section>
 
-  <section>
+  <section class="split">
     <p class="label">Services</p>
+    <div>
     <div class="svc">
       <div class="svc-row">
         <h3>Shopify Development</h3>
@@ -292,10 +301,12 @@
       </div>
     </div>
     <p class="avail">Available for freelance engagements, agency overflow and full-time remote roles. Contact for pricing.</p>
+    </div>
   </section>
 
-  <section>
+  <section class="split">
     <p class="label">Currently</p>
+    <div>
     <div class="now-line">
       <span class="now-dot">Baudie</span>
       <span>Developing and maintaining the production Shopify storefront: theme, checkout extension and discount function.</span>
@@ -304,9 +315,10 @@
       <span class="now-dot">Timglas</span>
       <span>Building a local-first time tracking app for macOS. <a class="now-link" href="https://github.com/nicocantarelli/timglas" target="_blank" rel="noopener">Public on GitHub</a>, in active development.</span>
     </div>
+    </div>
   </section>
 
-  <section>
+  <section class="split">
     <p class="label">About</p>
     <div class="prose">
       <p>I’m a software developer and technical project lead based in Argentina, with time spent living and working in Berlin, Turin and Boston.</p>
@@ -316,8 +328,9 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="split">
     <p class="label">Contact</p>
+    <div>
     <p class="contact-head">Have something worth building?</p>
     <p class="contact-sub">Whether you have finished designs, an existing product that needs work or only the beginning of an idea, let’s talk about how to make it real.</p>
     <a class="contact-mail" href="mailto:hello@nicocantarelli.com">hello@nicocantarelli.com</a>
@@ -325,6 +338,7 @@
       <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a>
     </p>
+    </div>
   </section>
 
   <footer>
