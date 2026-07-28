@@ -70,7 +70,8 @@
   .label .arw { margin-left: 4px; }
 
   /* hero */
-  .hero { padding: 108px 0 116px; border-bottom: 1px solid var(--hair); }
+  .fold { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+  .hero { flex: 1; display: flex; align-items: center; padding: 40px 0; border-bottom: none; }
   .hero p {
     font-weight: 600;
     font-size: clamp(2rem, 6.4vw, 6rem);
@@ -161,6 +162,7 @@
 <body>
 <div class="wide">
 
+  <div class="fold">
   <header>
       <div class="top">
         <a class="name" href="/">Nicolas Cantarelli</a>
@@ -176,6 +178,7 @@
   <section class="hero">
     <p>I build the websites, stores and software that businesses run on.</p>
   </section>
+  </div>
 
   <section id="work">
     <p class="label">Selected work <span class="arw">&darr;</span></p>
