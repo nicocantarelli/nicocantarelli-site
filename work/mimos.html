@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mimos AI — Nicolas Cantarelli</title>
+<meta name="description" content="Next.js launch site designed and built for Mimos AI, a pre-launch startup for visibility on AI platforms.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+  .prose .quiet { color: var(--dim); }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Mimos AI</h1>
+  </div>
+  <p class="meta">
+    Startup &middot; Design and development &middot; Next.js, TypeScript, Supabase &middot; Lumios Digital &middot;
+    <a href="https://github.com/nicocantarelli/mimos-ai-main" target="_blank" rel="noopener">source on GitHub</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/mimos-landing.jpg" width="1760" height="1100" alt="The Mimos AI landing page">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>Mimos AI helps businesses get found on AI platforms: visibility in AI search, with tracking, compliance and conversion around it. I designed and built their launch site at Lumios Digital, a single page product landing with an early access funnel behind it.</p>
+      <p>Next.js 15 on the App Router, React 19, TypeScript, Tailwind, Radix primitives, Framer Motion for movement, Spline for the 3D, and Supabase for the data.</p>
+      <p class="quiet">This is the site as designed and launched in 2025. Mimos AI has since moved to a newer design, so the current trymimos.com is not this work.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Selling something nobody can try yet</p>
+    <div class="prose">
+      <p>Every other project here has a thing to show: a product to photograph, an island to visit, a catalogue to browse. Mimos AI had none of that. The product was pre-launch, so there was no demo, no screenshots of a real dashboard, no customers to quote.</p>
+      <p>Which puts unusual weight on the site itself. When the pitch is that you understand how visibility works in the AI era, a site that looks ordinary undermines the claim before a word is read. The page had to feel like evidence rather than description, which is why it carries a 3D hero and real motion rather than a stack of feature cards.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Two builds, not one responsive one</p>
+    <div class="prose">
+      <p>The desktop and mobile experiences are separate compositions, switched by a media-query component rather than adapted with CSS alone.</p>
+      <p>That is a deliberate cost. Responsive CSS is less code and usually the right answer, but not when the centrepiece is a hosted 3D scene: adapting it down means every phone still pays for something built for a large screen and a pointer. Building the mobile screen separately meant it could be designed for a phone rather than degraded into one.</p>
+    </div>
+    <figure>
+      <img src="/images/work/mimos-mobile.jpg" width="1760" height="1100" alt="The mobile composition" loading="lazy">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">A funnel that qualifies</p>
+    <div class="prose">
+      <p>The early access form asks for more than an email. Name, company, monthly budget and notes, validated with Zod on the way in and again inside a server action before anything is written.</p>
+      <p>Asking about budget on a waitlist form costs some signups, which is the point. A pre-launch startup with limited time does not need the longest possible list, it needs to know which conversations are worth having first. The form is a qualification step wearing the costume of a signup.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Where the security actually is</p>
+    <div class="prose">
+      <p>Supabase's anonymous key is public by design; it ships in the browser bundle and there is no hiding it. People new to the platform treat that key as the protection, which it is not.</p>
+      <p>The boundary is the row level security policy. Here it permits inserts and nothing else, so the key in the wild can add a lead and can never read the list of them. The schema and its policies were written up as a handover document for the client rather than left in my head, since the point of a launch site is that somebody else can own it afterwards.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Early access form path and where the security boundary sits">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+    .ln { stroke: #111111; stroke-width: 1; }
+    .dv { stroke: #111111; stroke-width: 1; stroke-dasharray: 3 4; }
+  </style>
+
+  <text class="lb" x="0" y="16">BROWSER</text>
+  <text class="lb" x="900" y="16" text-anchor="end">SERVER</text>
+  <line class="dv" x1="330" y1="28" x2="330" y2="280"/>
+
+  <rect class="bx" x="0" y="60" width="290" height="86"/>
+  <text class="hd" x="16" y="88">Form</text>
+  <text class="bd" x="16" y="110">React Hook Form,</text>
+  <text class="bd" x="16" y="128">Zod schema</text>
+
+  <rect class="bx" x="380" y="60" width="230" height="86"/>
+  <text class="hd" x="396" y="88">Server action</text>
+  <text class="bd" x="396" y="110">Validates again,</text>
+  <text class="bd" x="396" y="128">client never trusted</text>
+
+  <rect class="bx" x="660" y="60" width="240" height="86"/>
+  <text class="hd" x="676" y="88">Supabase</text>
+  <text class="bd" x="676" y="110">Row level security on,</text>
+  <text class="bd" x="676" y="128">public policy allows insert only</text>
+
+  <rect class="bx" x="380" y="186" width="520" height="72"/>
+  <text class="hd" x="396" y="212">Why insert only</text>
+  <text class="bd" x="396" y="234">The anon key is public by design. The policy is the boundary, so a key in</text>
+  <text class="bd" x="396" y="252">the wild can add a lead and can never read the list of them.</text>
+
+  <line class="ln" x1="290" y1="103" x2="374" y2="103"/>
+  <polygon points="380,103 372,99 372,107" fill="#111111"/>
+  <line class="ln" x1="610" y1="103" x2="654" y2="103"/>
+  <polygon points="660,103 652,99 652,107" fill="#111111"/>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Small things that matter later</p>
+    <div class="prose">
+      <p>The Supabase client falls back to a placeholder when environment variables are missing, so a build never fails on absent config. It is four lines and it is the difference between a deploy pipeline that works for whoever inherits the project and one that fails mysteriously the first time somebody clones it.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Designed, built and launched in 2025 at Lumios Digital. The company has since redesigned the site, which is the normal life of a startup landing page. The source for the original remains public.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://github.com/nicocantarelli/mimos-ai-main" target="_blank" rel="noopener">View the source</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Satellite Solutions — Nicolas Cantarelli</title>
+<meta name="description" content="Hand-written WordPress theme designed and built for Global Satellite Solutions, makers of Viper, an inflight connectivity monitoring product.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Global Satellite Solutions</h1>
+  </div>
+  <p class="meta">
+    B2B technology &middot; Design and development &middot; WordPress, PHP &middot; Lumios Digital &middot;
+    <a href="https://satqoe.com" target="_blank" rel="noopener">satqoe.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/gss-hero.jpg" width="1760" height="1100" alt="The Global Satellite Solutions site">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>Global Satellite Solutions makes Viper, a monitoring product for inflight connectivity. It measures satellite quality of experience against Seamless Air Alliance industry metrics and surfaces antenna alignment problems, signal degradation and interference, without needing hardware installed on the aircraft.</p>
+      <p>The site sells that to airlines, satellite operators and telecom providers. I designed it and built the theme, at Lumios Digital: a hand-written WordPress theme, no build step, plain PHP templates with per-feature stylesheets and vanilla JavaScript.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">The opposite of an ecommerce problem</p>
+    <div class="prose">
+      <p>A store wants many visitors and converts a small fraction of them. This site wants the reverse. Almost nobody who matters will ever visit it, and the ones who do are procurement and engineering people at airlines evaluating whether a vendor is credible. A single one of them turning into a conversation is worth more than the entire month of traffic.</p>
+      <p>That changes what the build is for. There is no funnel to optimise. There are two jobs: explain a technical product without either dumbing it down or drowning the reader, and make absolutely certain that the handful of people who raise their hand are not lost.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Explaining the product</p>
+    <div class="prose">
+      <p>The homepage is built as a sequence rather than a set of blocks: what the problem is, what inflight connectivity involves, an airline case study, what the data shows, what to do about it, and only then the invitation to see the product.</p>
+      <p>The statistics animate as they scroll into view, counting up rather than appearing finished, which gives a reader a reason to stop on the number instead of skimming past it. The effect is driven by an intersection observer rather than a scroll handler, so it costs nothing while the page is idle.</p>
+    </div>
+    <figure>
+      <img src="/images/work/gss-stats.jpg" width="1760" height="1100" alt="The product explanation section on the homepage" loading="lazy">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Not losing the enquiry</p>
+    <div class="prose">
+      <p>The demo request is the entire commercial point of the site, so it is the part built most carefully. The submission is nonce verified and every field sanitised before anything is sent, and the email address is validated rather than assumed.</p>
+      <p>It then sends two messages. A formatted notification to the sales team, with reply-to set to the requester so a response is one click rather than a copy and paste. And a plain text confirmation straight back to the person who filled it in.</p>
+      <p>That second email is the one people skip. An airline executive who submits a form and hears nothing does not assume the message is in a queue, they assume the site is broken and the vendor is unserious. Confirming receipt immediately costs one function call and protects the only conversion that matters.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Demo request path, with confirmation back to the requester">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .ln { stroke: #111111; stroke-width: 1; }
+  </style>
+
+  <rect class="bx" x="0" y="80" width="200" height="80"/>
+  <text class="hd" x="16" y="108">Demo request</text>
+  <text class="bd" x="16" y="130">Nonce checked,</text>
+  <text class="bd" x="16" y="148">every field sanitised</text>
+
+  <rect class="bx" x="330" y="10" width="240" height="80"/>
+  <text class="hd" x="346" y="38">To the sales team</text>
+  <text class="bd" x="346" y="60">Formatted HTML, reply-to</text>
+  <text class="bd" x="346" y="78">set to the requester</text>
+
+  <rect class="bx" x="330" y="150" width="240" height="80"/>
+  <text class="hd" x="346" y="178">Back to the requester</text>
+  <text class="bd" x="346" y="200">Plain text confirmation,</text>
+  <text class="bd" x="346" y="218">sent immediately</text>
+
+  <rect class="bx" x="660" y="150" width="240" height="80"/>
+  <text class="hd" x="676" y="178">Why it matters</text>
+  <text class="bd" x="676" y="200">Silence after a form reads</text>
+  <text class="bd" x="676" y="218">as a broken website</text>
+
+  <line class="ln" x1="200" y1="106" x2="324" y2="56"/>
+  <polygon points="330,54 322,50 322,58" fill="#111111"/>
+  <line class="ln" x1="200" y1="134" x2="324" y2="184"/>
+  <polygon points="330,186 322,182 322,190" fill="#111111"/>
+  <line class="ln" x1="570" y1="190" x2="654" y2="190"/>
+  <polygon points="660,190 652,186 652,194" fill="#111111"/>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">A site that cannot half-exist</p>
+    <div class="prose">
+      <p>Two smaller decisions come from the same instinct. The pages the site depends on, news and the legal pages, create themselves if they are missing rather than 404ing, and navigation falls back to a sensible menu if none has been assigned.</p>
+      <p>Neither is clever. Both mean that a client who logs in and changes something cannot accidentally leave the site in a state where a prospect hits a dead end.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
+    <ul class="spec">
+      <li>Dedicated Aviation and Telecom pages for the two markets, each with its own scoped stylesheet</li>
+      <li>News system with AJAX load more, author overrides, and per-post display toggles</li>
+      <li>Homepage featured-post flag so news can be surfaced without editing templates</li>
+      <li>Desktop-only parallax on the features section</li>
+      <li>About, contact and three legal templates</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Live since 2025 and maintained through to the studio winding down.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://satqoe.com" target="_blank" rel="noopener">Visit satqoe.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
