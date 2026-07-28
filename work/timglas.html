@@ -247,7 +247,7 @@
       <p>Consider an entry a user types in as starting at 23:00 and ending at 01:00, leaving both dates set to the same day, because that is what a form defaults to and nobody thinks about it. Read literally, the end precedes the start: the duration is negative, and depending on how carelessly the code is written the entry either vanishes or corrupts a day's total. What should happen is that the end rolls forward one day, because a person who worked from eleven at night until one in the morning worked two hours and expects to be paid for two hours.</p>
     </div>
     <figure class="dia">
-      <svg class="diagram" viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An overnight entry where the end time appears before the start time">
+      <svg class="diagram" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An entry typed as 23:00 to 01:00 on the same day reads as minus 22 hours; rolling the end forward one day makes it a two hour session across midnight">
   <style>
     .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
     .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
@@ -256,25 +256,41 @@
     .ln { stroke: #111111; stroke-width: 1; }
     .tick { stroke: #DDDDDA; stroke-width: 1; }
     .bar { fill: none; stroke: #111111; stroke-width: 2; }
+    .dv { stroke: #DDDDDA; stroke-width: 1; stroke-dasharray: 3 4; }
   </style>
 
-  <text class="lb" x="0" y="16">WHAT THE USER TYPED</text>
-  <text class="bd" x="0" y="42">Start 23:00 &middot; End 01:00 &middot; both dated Tuesday</text>
+  <text class="lb" x="0" y="14">AS TYPED</text>
+  <rect class="bx" x="0" y="26" width="410" height="112"/>
+  <text class="bd" x="20" y="56">Start</text>
+  <text class="hd" x="110" y="56">Tue 23:00</text>
+  <text class="bd" x="20" y="82">End</text>
+  <text class="hd" x="110" y="82">Tue 01:00</text>
+  <text class="hd" x="20" y="118">End precedes start, by 22 hours</text>
 
-  <line class="tick" x1="0" y1="96" x2="900" y2="96"/>
-  <text class="bd" x="0" y="88">Tue 00:00</text>
-  <text class="bd" x="430" y="88">Tue 23:00</text>
-  <text class="bd" x="820" y="88">Wed 01:00</text>
-  <line class="tick" x1="450" y1="88" x2="450" y2="104"/>
-  <line class="tick" x1="860" y1="88" x2="860" y2="104"/>
+  <line class="ln" x1="410" y1="82" x2="484" y2="82"/>
+  <polygon points="490,82 482,78 482,86" fill="#111111"/>
 
-  <text class="lb" x="0" y="140">NAIVE READING</text>
-  <line class="bar" x1="40" y1="160" x2="450" y2="160"/>
-  <text class="bd" x="470" y="164">End lands before start. Duration is negative, or the entry is silently dropped.</text>
+  <text class="lb" x="490" y="14">AS STORED</text>
+  <rect class="bx" x="490" y="26" width="410" height="112"/>
+  <text class="bd" x="510" y="56">Start</text>
+  <text class="hd" x="600" y="56">Tue 23:00</text>
+  <text class="bd" x="510" y="82">End</text>
+  <text class="hd" x="600" y="82">Wed 01:00</text>
+  <text class="hd" x="510" y="118">The end rolls forward one day</text>
 
-  <text class="lb" x="0" y="200">WHAT IT DOES</text>
-  <line class="bar" x1="450" y1="220" x2="860" y2="220"/>
-  <text class="bd" x="0" y="242">The end rolls forward one day, so a session that crossed midnight keeps the two hours it earned.</text>
+  <text class="hd" x="450" y="222" text-anchor="middle">Two hours</text>
+
+  <line class="tick" x1="0" y1="242" x2="900" y2="242"/>
+  <line class="dv" x1="450" y1="232" x2="450" y2="288"/>
+
+  <line class="bar" x1="300" y1="242" x2="600" y2="242"/>
+  <line class="ln" x1="300" y1="234" x2="300" y2="250"/>
+  <line class="ln" x1="600" y1="234" x2="600" y2="250"/>
+
+  <text class="bd" x="300" y="268" text-anchor="middle">Tue 23:00</text>
+  <text class="bd" x="600" y="268" text-anchor="middle">Wed 01:00</text>
+  <text class="lb" x="150" y="290" text-anchor="middle">TUESDAY</text>
+  <text class="lb" x="750" y="290" text-anchor="middle">WEDNESDAY</text>
 </svg>
     </figure>
     <div class="prose">
