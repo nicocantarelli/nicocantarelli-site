@@ -121,31 +121,31 @@
   }
 
   /* prose */
-  .prose { max-width: 60ch; }
-  .prose p + p { margin-top: 16px; }
+  .prose { max-width: 60ch; font-size: 1.35rem; }
+  .prose p + p { margin-top: 20px; }
   .prose .quiet { color: var(--dim); }
-  .thesis p { font-size: 1.12rem; }
+  .thesis p { font-size: 1.35rem; }
   .thesis p:first-child { font-weight: 600; }
 
   /* services */
   .svc { border-top: 1px solid var(--hair); }
   .svc-row {
-    display: grid; grid-template-columns: 17rem 1fr; gap: 24px;
+    display: grid; grid-template-columns: 19rem 1fr; gap: 24px;
     padding: 24px 0; border-bottom: 1px solid var(--hair);
   }
-  .svc-row h3 { font-size: 1.12rem; font-weight: 600; }
-  .svc-row p { color: var(--dim); max-width: 52ch; }
+  .svc-row h3 { font-size: 1.35rem; font-weight: 600; }
+  .svc-row p { color: var(--dim); max-width: 52ch; font-size: 1.25rem; }
   @media (max-width: 640px) { .svc-row { grid-template-columns: 1fr; gap: 6px; } }
-  .avail { margin-top: 26px; font-size: 1rem; color: var(--dim); }
+  .avail { margin-top: 26px; font-size: 1.15rem; color: var(--dim); }
 
   /* currently */
-  .now-line { display: flex; gap: 20px; align-items: baseline; padding: 12px 0; }
+  .now-line { display: flex; gap: 20px; align-items: baseline; padding: 14px 0; font-size: 1.25rem; }
   .now-line + .now-line { border-top: 1px solid var(--hair); }
-  .now-dot { font-weight: 600; font-size: 0.95rem; min-width: 6.5rem; }
+  .now-dot { font-weight: 600; font-size: 1.25rem; min-width: 8rem; }
 
   /* contact + footer */
   .contact-mail {
-    font-size: clamp(1.15rem, 3vw, 1.9rem); font-weight: 600;
+    font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 600;
     letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
     border-bottom: 2px solid var(--ink); padding-bottom: 2px;
   }
