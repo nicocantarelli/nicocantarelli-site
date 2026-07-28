@@ -62,8 +62,7 @@
     letter-spacing: -0.03em; line-height: 1;
   }
   .meta {
-    margin-top: 22px; padding-bottom: 44px;
-    border-bottom: 1px solid var(--hair);
+    margin-top: 22px;
     font-size: 1.05rem; color: var(--dim);
   }
   .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
@@ -75,7 +74,7 @@
   .prose p + p { margin-top: 20px; }
   .prose strong { font-weight: 600; }
 
-  figure { margin: 40px 0 0; }
+  figure { margin: 40px 0 0; max-width: 880px; }
   figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
   figure.lead { margin: 44px 0 0; }
   figure.dia { margin: 44px 0 4px; max-width: 880px; }
@@ -121,7 +120,7 @@
   </p>
 
   <figure class="lead">
-    <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Estorefront%20crop%3C/text%3E%3C/svg%3E" alt="Baudie storefront">
+    <img src="/images/work/baudie-storefront.webp" width="2000" height="1250" alt="Baudie storefront">
   </figure>
 
   <section>
@@ -183,7 +182,7 @@
     </figure>
   </section>
 
-  <section>
+  <section style="border-bottom: none;">
     <p class="label">Testing</p>
     <div class="prose">
       <p>Discount logic is the kind of code that fails quietly. Nothing errors, nothing appears in a log, and the store simply sells at the wrong price until somebody notices in the numbers weeks later.</p>
