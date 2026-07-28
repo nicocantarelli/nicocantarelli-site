@@ -396,7 +396,7 @@
         running = true;
         var queues = segs.map(function (s) {
           return s.text.split("").map(function (ch) {
-            return { to: ch, end: 2 + Math.floor(Math.random() * 2) };
+            return { to: ch, end: 4 + Math.floor(Math.random() * 3) };
           });
         });
         var frame = 0;
@@ -418,7 +418,7 @@
             if (done !== q.length) allDone = false;
           });
           if (allDone) { running = false; timer = null; }
-          else { frame++; timer = setTimeout(step, 70); }
+          else { frame++; timer = setTimeout(step, 100); }
         }
         step();
       }
