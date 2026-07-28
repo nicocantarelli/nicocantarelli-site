@@ -68,12 +68,21 @@
   .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
   .meta a:hover { border-color: var(--ink); }
 
-  section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
-  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 36px; }
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 18rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
   .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
   .prose p + p { margin-top: 20px; }
   .prose strong { font-weight: 600; }
 
+  section > figure { grid-column: 2; }
   figure { margin: 40px 0 0; }
   figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
   figure.lead { margin: 44px 0 0; }
