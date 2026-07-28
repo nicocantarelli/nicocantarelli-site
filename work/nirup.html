@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nirup Island — Nicolas Cantarelli</title>
+<meta name="description" content="Custom WordPress theme for Nirup Island, a private island destination in the Riau Archipelago.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
+<style>
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplay.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Helvetica Now Display';
+    src: url('/fonts/HelveticaNowDisplayBold.woff2') format('woff2');
+    font-weight: 600 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --bg: #FFFFFF;
+    --ink: #111111;
+    --dim: #6B6B68;
+    --hair: #DDDDDA;
+    --sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  .wide { margin: 0; padding: 0 2.6666666667rem; }
+
+  header { padding: 48px 0 18px; border-bottom: 2px solid var(--ink); }
+  .top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .name {
+    font-weight: 700; font-size: clamp(1.2rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+  }
+  nav { display: flex; gap: 28px; font-size: 1.15rem; }
+  nav a { color: var(--dim); text-decoration: none; }
+  nav a:hover, nav a[aria-current] { color: var(--ink); }
+  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
+
+  .title { padding: 72px 0 0; }
+  .title h1 {
+    font-weight: 600; font-size: clamp(2.6rem, 8vw, 6rem);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .meta {
+    margin-top: 22px;
+    font-size: 1.05rem; color: var(--dim);
+  }
+  .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .meta a:hover { border-color: var(--ink); }
+
+  section {
+    padding: 56px 0; border-bottom: 1px solid var(--hair);
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    align-items: start;
+  }
+  .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
+  .prose { max-width: 62ch; font-size: 1.35rem; }
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 20px; }
+    section > figure { grid-column: 1; }
+  }
+  .prose p + p { margin-top: 20px; }
+  .prose strong { font-weight: 600; }
+
+  section > figure { grid-column: 2; max-width: 880px; }
+  figure { margin: 40px 0 0; }
+  figure img { width: 100%; height: auto; display: block; background: #E8E8E5; aspect-ratio: 16 / 10; object-fit: cover; }
+  figure.lead { margin: 44px 0 0; }
+  figure.dia { margin: 44px 0 4px; max-width: 880px; }
+  .diagram { width: 100%; height: auto; display: block; overflow: visible; }
+
+  ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
+  ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  ul.spec li:first-child { border-top: 1px solid var(--hair); }
+
+  .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
+  .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .next a:hover { border-color: var(--ink); }
+
+  footer {
+    padding: 44px 0 56px; display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 0.95rem; color: var(--dim);
+  }
+  footer a { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* mobile */
+  @media (max-width: 720px) {
+    .wide { padding: 0 1.25rem; }
+    header { padding: 32px 0 16px; }
+    nav { gap: 20px; font-size: 1rem; }
+    .role { margin-top: 14px; font-size: 0.95rem; }
+    .title { padding: 48px 0 0; }
+    .meta { margin-top: 16px; font-size: 0.95rem; }
+    section { padding: 40px 0; }
+    .label { font-size: 1.15rem; }
+    .prose { font-size: 1.05rem; }
+    .prose p + p { margin-top: 14px; }
+    ul.spec { font-size: 1rem; }
+    ul.spec li { padding: 10px 0; }
+    figure { margin: 28px 0 0; }
+    figure.lead { margin: 32px 0 0; }
+    figure.dia { overflow-x: auto; }
+    .diagram { min-width: 640px; }
+    .next { padding: 36px 0 0; font-size: 0.95rem; }
+    footer { padding: 32px 0 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wide">
+
+  <header>
+    <div class="top">
+      <a class="name" href="/">Nicolas Cantarelli</a>
+      <nav>
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/gallery">AI Gallery</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+    <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
+  </header>
+
+  <div class="title">
+    <h1>Nirup Island</h1>
+  </div>
+  <p class="meta">
+    Hospitality &middot; Design and development &middot; WordPress, PHP, WooCommerce &middot; Lumios Digital &middot;
+    <a href="https://nirupisland.com" target="_blank" rel="noopener">nirupisland.com</a>
+  </p>
+
+  <figure class="lead">
+    <img src="/images/work/nirup-accommodations.webp" width="2000" height="1250" alt="Nirup Island accommodations: The Westin resort and the Riahi Residences presented side by side">
+  </figure>
+
+  <section>
+    <p class="label">Scope</p>
+    <div class="prose">
+      <p>Nirup Island is a private island in Indonesia's Riau Archipelago, forty-five minutes by ferry from Singapore. On it sit three separate hospitality operators: The Westin Nirup Island Resort &amp; Spa, run by Marriott; the Riahi Residences, private villas under Swiss-belHotel; and ONE&deg;15 Marina. Around them are five restaurants, four experience programmes, a ferry service and villas for sale.</p>
+      <p>I designed the site and built the theme, at Lumios Digital. It is a custom WordPress theme written by hand: 68 PHP templates, around 25,000 lines, with per-feature stylesheets and vanilla JavaScript. No page builder, no starter theme, no build step.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">The problem</p>
+    <div class="prose">
+      <p>An island is not a website with a homepage and some subpages. Nirup is several businesses sharing an address. The resort runs on its own inventory, the marina takes berthing enquiries, the villas are both rentable and for sale, the restaurants have their own identities and none of it means anything to a visitor who cannot work out how to get there.</p>
+      <p>It also serves two audiences who want nothing in common. Somebody planning a weekend needs rooms, dining, experiences and ferry times. Somebody considering buying a villa needs floor plans, pricing and a sales contact. The same site has to do both without either journey feeling like an afterthought, in English and Bahasa Indonesia.</p>
+      <p>And the site does not own the whole transaction. Marriott keeps its own booking funnel for the resort, so half the accommodation on the island is booked somewhere else entirely.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Modeling the island</p>
+    <div class="prose">
+      <p>The shortcut is to build pages. Each thing on the island gets a page, someone writes the content into it, and the site looks finished. It also stops being true the first time a restaurant changes its hours.</p>
+      <p>Instead the theme models what is actually there, as <strong>nine content types</strong>: villas, Westin rooms, experiences, restaurants, events and offers, ferry schedules, private charters, media coverage, and the sales units for villa ownership. Each is a real kind of thing on the island rather than a page about one, so a villa can appear in an availability result, on a map, in a carousel and in the sales section without being written four times.</p>
+      <p>Editing that model is done through <strong>36 meta box groups</strong> on the content types and <strong>328 Customizer settings</strong> across 29 sections, which is where the copy, imagery and arrangement of every front-end section live.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Booking, when you only own half of it</p>
+    <div class="prose">
+      <p>A guest arriving at the site wants to stay on the island. Whether that means a Marriott room or a Swiss-belHotel villa is an operator distinction, not a guest one.</p>
+      <p>But the resort books through Marriott and always will, while the villas book here. Pretending otherwise produces the worst outcome: a booking flow that looks unified and then dead-ends. So the site names the split instead of hiding it. Booking presents both options as equals, each with its own inventory and its own destination, and the villa calendar states in plain words that it covers the Riahi Residences only. A guest who ends up on marriott.com meant to.</p>
+      <p>The half that is ours runs on booking calendars the theme searches directly, then intercepts the plugin's result markup and rebuilds it: each calendar maps back to its villa through a stored ID, so the card carries the real image, the real starting price and the real link rather than plugin defaults. Payment runs through WooCommerce with the checkout and confirmation templates overridden, so the transaction never drops the guest into a stock store page.</p>
+    </div>
+    <figure class="dia">
+      <svg class="diagram" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Booking paths: villas on site, resort to Marriott">
+  <style>
+    .bx { fill: none; stroke: #DDDDDA; stroke-width: 1; }
+    .bxo { fill: none; stroke: #DDDDDA; stroke-width: 1; stroke-dasharray: 3 4; }
+    .hd { font: 600 15px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #111111; }
+    .bd { font: 400 13px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; }
+    .lb { font: 400 11px "Helvetica Now Display", Helvetica, Arial, sans-serif; fill: #6B6B68; letter-spacing: .06em; }
+    .ln { stroke: #111111; stroke-width: 1; }
+  </style>
+
+  <rect class="bx" x="0" y="110" width="180" height="86"/>
+  <text class="hd" x="16" y="138">Book your stay</text>
+  <text class="bd" x="16" y="160">Two options,</text>
+  <text class="bd" x="16" y="178">presented as equals</text>
+
+  <text class="lb" x="238" y="26">OURS</text>
+  <rect class="bx" x="238" y="40" width="190" height="86"/>
+  <text class="hd" x="254" y="68">Villa calendars</text>
+  <text class="bd" x="254" y="90">Riahi Residences,</text>
+  <text class="bd" x="254" y="108">searched by date</text>
+
+  <rect class="bx" x="486" y="40" width="190" height="86"/>
+  <text class="hd" x="502" y="68">Results, remapped</text>
+  <text class="bd" x="502" y="90">Calendar ID to villa,</text>
+  <text class="bd" x="502" y="108">theme markup</text>
+
+  <rect class="bx" x="734" y="40" width="166" height="86"/>
+  <text class="hd" x="750" y="68">Checkout</text>
+  <text class="bd" x="750" y="90">WooCommerce,</text>
+  <text class="bd" x="750" y="108">overridden</text>
+
+  <text class="lb" x="238" y="212">NOT OURS</text>
+  <rect class="bxo" x="238" y="226" width="190" height="66"/>
+  <text class="hd" x="254" y="254">The Westin</text>
+  <text class="bd" x="254" y="276">Marriott booking funnel</text>
+
+  <line class="ln" x1="180" y1="140" x2="232" y2="90"/>
+  <polygon points="238,88 230,84 230,92" fill="#111111"/>
+  <line class="ln" x1="180" y1="166" x2="232" y2="252"/>
+  <polygon points="238,254 230,248 230,257" fill="#111111"/>
+  <line class="ln" x1="428" y1="83" x2="480" y2="83"/>
+  <polygon points="486,83 478,79 478,87" fill="#111111"/>
+  <line class="ln" x1="676" y1="83" x2="728" y2="83"/>
+  <polygon points="734,83 726,79 726,87" fill="#111111"/>
+</svg>
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">The map, and who moves the pins</p>
+    <div class="prose">
+      <p>Two maps do real work here. One is the ferry route, which answers the first question anybody asks, with Singapore and Batam routes switchable on the same view. The other is the island itself: where the resort sits relative to the marina, the beach club, the villas.</p>
+      <p>The island map is a set of labelled points, and the obvious way to build it is to write the coordinates into the code.</p>
+      <p>The obvious way is also the version where every change is a developer ticket. So the map has an editor behind it. Pins are dragged into place on a preview of the island in the WordPress admin, positions save as they move, and the same screen handles bulk edits, filtering, and import and export of the whole pin set.</p>
+      <p>It is a small tool, and it is the difference between a map that stays accurate and a map that quietly goes stale.</p>
+    </div>
+    <figure>
+      <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3Eadmin%20pin%20editor%3C/text%3E%3C/svg%3E" alt="Dragging map pins in the WordPress admin">
+    </figure>
+  </section>
+
+  <section>
+    <p class="label">Built to be handed over</p>
+    <div class="prose">
+      <p>There is no build step. Styles are plain CSS split per feature, scripts are vanilla JavaScript, and the PHP is organised into focused files for post types, meta boxes, Customizer sections, AJAX handlers and asset loading.</p>
+      <p>That is deliberate. A hospitality site outlives the person who wrote it, and the next developer should be able to open a file and read it rather than reconstruct a toolchain from a lockfile that stopped installing two years ago. Nothing here rots when a dependency does.</p>
+      <p>API keys for maps, captcha and the newsletter are read through a single accessor rather than written into templates, so nothing sensitive lives in the repository.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Also in the build</p>
+    <ul class="spec">
+      <li>English and Bahasa Indonesia, with a custom language switcher</li>
+      <li>17 AJAX endpoints: enquiry forms for berthing, private events and villa sales, newsletter signup, booking flows</li>
+      <li>Getting-here section with mapping, ferry timetables, and visa-free and visa-on-arrival country listings</li>
+      <li>Newsletter signup with captcha verification</li>
+      <li>Experience, charter and event booking flows, each with their own calendar modal</li>
+      <li>Press kit, media coverage archive with pagination, and sustainability sections</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="label">Status</p>
+    <div class="prose">
+      <p>Delivered and live. The site has run the island's bookings, enquiries and content since launch, edited by the team rather than by me.</p>
+    </div>
+  </section>
+
+  <div class="next">
+    <a href="/#work">All work</a>
+    <a href="https://nirupisland.com" target="_blank" rel="noopener">Visit nirupisland.com</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Nicolas Cantarelli</span>
+    <span>
+      <a href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://x.com/bycantarelli" target="_blank" rel="noopener">X</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
