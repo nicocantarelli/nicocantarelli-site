@@ -98,30 +98,30 @@
   /* work index */
   .index { border-top: 1px solid var(--hair); }
   .index a.row {
-    display: block; text-align: center; padding: 42px 0;
+    display: block; text-align: center; padding: 1.3333333333rem 0;
     border-bottom: 1px solid var(--hair);
     text-decoration: none; color: var(--ink);
   }
   .line {
     display: block; font-weight: 600;
-    font-size: clamp(1.9rem, 6vw, 5rem);
+    font-size: clamp(2rem, 6.5vw, 5.5rem);
     letter-spacing: -0.02em; line-height: 1.08;
   }
   .slot {
-    display: inline-block; width: 0; height: 1.05em;
-    vertical-align: -0.18em; overflow: hidden;
+    display: inline-block; width: 0; height: 1.2em;
+    vertical-align: -0.28em; overflow: hidden;
     transition: width 0.34s cubic-bezier(0.22, 1, 0.36, 1), margin 0.34s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .slot--mid { width: 0.22em; }
   .slot img {
-    width: 1.9em; height: 1.05em; object-fit: cover; display: block;
+    width: 2.4em; height: 1.2em; object-fit: cover; display: block;
     opacity: 0; transition: opacity 0.34s ease;
   }
-  .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 1.9em; margin: 0 0.18em; }
+  .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 2.4em; margin: 0 0.18em; }
   .index a.row:hover .slot img, .index a.row:focus-visible .slot img { opacity: 1; }
   .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
   @media (hover: none) {
-    .slot { width: 1.9em; margin: 0 0.18em; }
+    .slot { width: 2.4em; margin: 0 0.18em; }
     .slot img { opacity: 1; }
   }
 
