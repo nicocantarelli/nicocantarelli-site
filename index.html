@@ -112,11 +112,6 @@
   /* gallery strip (home) */
   .strip-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
   .strip-head .label { margin-bottom: 0; }
-  .strip-link {
-    font-size: 0.95rem; font-weight: 500; color: var(--ink);
-    text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px;
-  }
-  .strip-link:hover { color: var(--dim); border-color: var(--dim); }
   .strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
   .strip picture { display: block; min-width: 0; }
   .strip img { width: 100%; height: auto; aspect-ratio: 5 / 6; object-fit: cover; display: block; }
@@ -215,7 +210,6 @@
   <section>
     <div class="strip-head">
       <p class="label">AI Gallery <span class="arw">&darr;</span></p>
-      <a class="strip-link" href="/gallery">View gallery <span class="arw">&darr;</span></a>
     </div>
     <div class="strip">
 <!-- strip:auto -->
