@@ -241,7 +241,7 @@
         <a class="name" href="/">Nicolas Cantarelli</a>
         <nav>
           <a href="#work">Work</a>
-          <a href="/gallery">AI Gallery</a>
+          <!-- <a href="/gallery">AI Gallery</a> -->
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -286,35 +286,11 @@
     </div>
   </section>
 
-  <section style="border-bottom: none;">
-    <div class="strip-head">
-      <p class="label">AI Gallery <span class="arw">&darr;</span></p>
-    </div>
-    <div class="strip">
-<!-- strip:auto -->
-      <picture>
-        <source srcset="/images/gallery/avif/2026-07-27-young-woman-s-2.avif" type="image/avif">
-        <img src="/images/gallery/jpg/2026-07-27-young-woman-s-2.jpg" width="2000" height="1120" alt="" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="/images/gallery/avif/2026-07-27-young-woman-s-2-2.avif" type="image/avif">
-        <img src="/images/gallery/jpg/2026-07-27-young-woman-s-2-2.jpg" width="2000" height="1120" alt="" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="/images/gallery/avif/2026-07-27-young-woman-1.avif" type="image/avif">
-        <img src="/images/gallery/jpg/2026-07-27-young-woman-1.jpg" width="2000" height="1120" alt="" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="/images/gallery/avif/2026-07-27-young-wom-1.avif" type="image/avif">
-        <img src="/images/gallery/jpg/2026-07-27-young-wom-1.jpg" width="1597" height="2000" alt="" loading="lazy">
-      </picture>
-      <picture>
-        <source srcset="/images/gallery/avif/2026-07-27-young-wom-0.avif" type="image/avif">
-        <img src="/images/gallery/jpg/2026-07-27-young-wom-0.jpg" width="1597" height="2000" alt="" loading="lazy">
-      </picture>
-<!-- /strip:auto -->
-    </div>
-  </section>
+  <!-- AI gallery strip, commented out for now.
+       Its <!- - strip:auto - -> markers went with it; scripts/build-gallery.mjs
+       now skips a file with no strip region, so the gallery pipeline still runs
+       for gallery.html. Restore this block from git history to bring it back. -->
+
 
   <section class="split">
     <p class="label">Thesis</p>

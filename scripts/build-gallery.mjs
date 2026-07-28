@@ -90,7 +90,9 @@ async function replaceRegion(file, marker, entries, indent) {
   const start = html.indexOf(open);
   const end = html.indexOf(close);
   if (start === -1 || end === -1 || end < start) {
-    throw new Error(`Markers ${open} / ${close} not found in ${path.basename(file)}`);
+    // The region is optional: the homepage strip can be commented out entirely.
+    console.log(`skipped: ${path.basename(file)} has no ${marker}:auto region`);
+    return;
   }
   const body = entries.map((entry) => pictureMarkup(entry, indent)).join('\n');
   const next = `${html.slice(0, start + open.length)}\n${body}\n${html.slice(end)}`;
