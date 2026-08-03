@@ -83,7 +83,7 @@
 
   /* hero */
   .fold { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-  .hero { flex: 1; display: flex; align-items: center; padding: 40px 0; border-bottom: none; }
+  .hero { flex: 1; display: flex; align-items: center; padding: 64px 0; border-bottom: none; }
   .hero .hero-line {
     font-weight: 600;
     font-size: clamp(1.8rem, 5.2vw, 4.6rem);
@@ -91,25 +91,21 @@
     letter-spacing: -0.03em;
     max-width: 20ch;
   }
+  .nb { white-space: nowrap; }
   .hero .hero-sub {
-    margin-top: 32px;
+    margin-top: 40px;
     font-size: 1.35rem;
     line-height: 1.45;
     color: var(--dim);
     max-width: 62ch;
   }
   .hero .hero-avail {
-    margin-top: 20px;
-    display: flex; align-items: center; gap: 10px;
+    margin-top: 28px;
     font-size: 1.15rem; font-weight: 500;
-  }
-  .hero-avail .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--ink); flex: none;
   }
 
   /* buttons */
-  .btns { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btns { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-block; padding: 11px 20px;
     border: 1px solid var(--ink); color: var(--ink);
@@ -123,7 +119,7 @@
   /* proof strip */
   .proof {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-    padding: 26px 0 34px; border-top: 1px solid var(--hair);
+    padding: 36px 0 44px; border-top: 1px solid var(--hair);
   }
   .proof-item { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
   .proof-cap {
@@ -167,15 +163,20 @@
     width: 2.4em; height: 1.3275em; object-fit: cover; display: block;
     opacity: 0; transition: opacity 0.34s ease;
   }
-  .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 2.4em; margin: 0 0.18em; }
-  .index a.row:hover .slot img, .index a.row:focus-visible .slot img { opacity: 1; }
   .slot::after {
     content: ""; position: absolute; inset: 0;
     background-image: var(--s1); background-size: 100% 100%;
     image-rendering: pixelated; opacity: 0; pointer-events: none;
   }
-  .index a.row:hover .slot::after, .index a.row:focus-visible .slot::after {
-    animation: depixel 0.65s steps(1, end) forwards;
+  /* Real pointers only. A tap on touch also fires :hover, and these rules
+     outrank anything a (hover: none) block can say, so the slot would open a
+     gap in the middle of the word with no image behind it. */
+  @media (hover: hover) {
+    .index a.row:hover .slot, .index a.row:focus-visible .slot { width: 2.4em; margin: 0 0.18em; }
+    .index a.row:hover .slot img, .index a.row:focus-visible .slot img { opacity: 1; }
+    .index a.row:hover .slot::after, .index a.row:focus-visible .slot::after {
+      animation: depixel 0.65s steps(1, end) forwards;
+    }
   }
   @keyframes depixel {
     0% { opacity: 1; background-image: var(--s1); }
@@ -184,12 +185,6 @@
     100% { opacity: 0; }
   }
   .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
-  @media (hover: none) {
-    .slot { width: 0; margin: 0; }
-    .slot--mid { width: 0.22em; }
-    .slot img { display: none; }
-    .slot::after { display: none; }
-  }
 
   /* gallery strip (home) */
   .strip-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
@@ -267,13 +262,13 @@
     .role { margin-top: 14px; font-size: 0.95rem; }
     section { padding: 40px 0; }
     .label { font-size: 1.15rem; margin-bottom: 24px; }
-    .hero { padding: 24px 0 40px; }
-    .hero .hero-sub { margin-top: 20px; font-size: 1.05rem; max-width: 40ch; }
+    .hero { padding: 44px 0 52px; }
+    .hero .hero-sub { margin-top: 30px; font-size: 1.05rem; max-width: 40ch; }
     .hero .hero-sub br { display: none; }
-    .hero .hero-avail { margin-top: 16px; font-size: 1rem; }
-    .btns { margin-top: 26px; gap: 10px; }
-    .btn { padding: 10px 16px; font-size: 0.95rem; }
-    .proof { grid-template-columns: repeat(2, 1fr); gap: 22px 16px; padding: 20px 0 26px; }
+    .hero .hero-avail { margin-top: 26px; font-size: 1rem; }
+    .btns { margin-top: 36px; gap: 10px; }
+    .btn { padding: 12px 18px; font-size: 0.95rem; }
+    .proof { grid-template-columns: repeat(2, 1fr); gap: 26px 16px; padding: 30px 0 34px; }
     .proof-cap { font-size: 0.75rem; }
     .avail-lead { font-size: 1.05rem; }
     .avail-list { margin-top: 20px; font-size: 1rem; }
@@ -305,7 +300,6 @@
         <a class="name" href="/">Nicolas Cantarelli</a>
         <nav>
           <a href="#work">Work</a>
-          <a href="#available">Available</a>
           <!-- <a href="/gallery">AI Gallery</a> -->
           <a href="#contact">Contact</a>
         </nav>
@@ -315,9 +309,9 @@
 
   <section class="hero">
     <div>
-      <p class="hero-line">Shopify and web developer who ships complex, design-led products end to end.</p>
+      <p class="hero-line">Shopify and web developer who ships complex, <span class="nb">design-led</span> products end to end.</p>
       <p class="hero-sub">I build and maintain custom Shopify themes, app extensions, WordPress platforms and web applications for brands, agencies and product teams.</p>
-      <p class="hero-avail"><span class="dot" aria-hidden="true"></span>Available immediately for contract and full-time remote work.</p>
+      <p class="hero-avail">Available immediately for contract and full-time remote work.</p>
       <p class="btns">
         <a class="btn btn--solid" href="#work">View selected work</a>
         <!-- Résumé button. Commit the PDF as /cv.pdf in the repo root, then delete
