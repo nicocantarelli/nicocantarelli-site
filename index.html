@@ -186,6 +186,29 @@
   }
   .index a.row:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
 
+  /* Touch has no hover, so instead of a swatch that opens inside the title,
+     each row carries a band of the project image that resolves in through the
+     same de-pixelation as it scrolls into view. */
+  .band { display: none; }
+  @media (hover: none) {
+    .slot img { display: none; }
+    .band {
+      display: block; position: relative;
+      margin-top: 0.9rem; aspect-ratio: 3 / 1;
+      background-image: var(--img);
+      background-size: cover; background-position: center;
+      background-color: #E8E8E5;
+      opacity: 0; transition: opacity 0.45s ease;
+    }
+    .band::after {
+      content: ""; position: absolute; inset: 0;
+      background-image: var(--s1); background-size: 100% 100%;
+      image-rendering: pixelated; opacity: 0; pointer-events: none;
+    }
+    .index a.row.lit .band { opacity: 1; }
+    .index a.row.lit .band::after { animation: depixel 0.65s steps(1, end) forwards; }
+  }
+
   /* gallery strip (home) */
   .strip-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 32px; }
   .strip-head .label { margin-bottom: 0; }
@@ -346,29 +369,37 @@
   <section id="work">
     <p class="label">Selected work <span class="arw">&darr;</span></p>
     <div class="index">
-      <a class="row" href="/work/baudie">
-        <span class="line"><span class="scr">Baudie</span><span class="slot" style="--s1:url('/images/px/baudie-1.webp');--s2:url('/images/px/baudie-2.webp');--s3:url('/images/px/baudie-3.webp')"><img src="/images/baudie.webp" alt="Baudie website"></span></span>
+      <a class="row" href="/work/baudie" style="--s1:url('/images/px/baudie-1.webp');--s2:url('/images/px/baudie-2.webp');--s3:url('/images/px/baudie-3.webp');--img:url('/images/baudie.webp')">
+        <span class="line"><span class="scr">Baudie</span><span class="slot"><img src="/images/baudie.webp" alt="Baudie website"></span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/nirup">
-        <span class="line"><span class="scr">Nirup</span><span class="slot slot--mid" style="--s1:url('/images/px/nirup-1.webp');--s2:url('/images/px/nirup-2.webp');--s3:url('/images/px/nirup-3.webp')"><img src="/images/nirup.webp" alt="Nirup Island website"></span><span class="scr">Island</span></span>
+      <a class="row" href="/work/nirup" style="--s1:url('/images/px/nirup-1.webp');--s2:url('/images/px/nirup-2.webp');--s3:url('/images/px/nirup-3.webp');--img:url('/images/nirup.webp')">
+        <span class="line"><span class="scr">Nirup</span><span class="slot slot--mid"><img src="/images/nirup.webp" alt="Nirup Island website"></span><span class="scr">Island</span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/tashola">
-        <span class="line"><span class="scr">Tashola</span><span class="slot" style="--s1:url('/images/px/tashola-1.webp');--s2:url('/images/px/tashola-2.webp');--s3:url('/images/px/tashola-3.webp')"><img src="/images/tashola.webp" alt="Tashola website" loading="lazy"></span></span>
+      <a class="row" href="/work/tashola" style="--s1:url('/images/px/tashola-1.webp');--s2:url('/images/px/tashola-2.webp');--s3:url('/images/px/tashola-3.webp');--img:url('/images/tashola.webp')">
+        <span class="line"><span class="scr">Tashola</span><span class="slot"><img src="/images/tashola.webp" alt="Tashola website" loading="lazy"></span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/harbourbay">
-        <span class="line"><span class="scr">Harbour Bay</span><span class="slot slot--mid" style="--s1:url('/images/px/harbourbay-1.webp');--s2:url('/images/px/harbourbay-2.webp');--s3:url('/images/px/harbourbay-3.webp')"><img src="/images/harbourbay.webp" alt="Harbour Bay Downtown website" loading="lazy"></span><span class="scr">Downtown</span></span>
+      <a class="row" href="/work/harbourbay" style="--s1:url('/images/px/harbourbay-1.webp');--s2:url('/images/px/harbourbay-2.webp');--s3:url('/images/px/harbourbay-3.webp');--img:url('/images/harbourbay.webp')">
+        <span class="line"><span class="scr">Harbour Bay</span><span class="slot slot--mid"><img src="/images/harbourbay.webp" alt="Harbour Bay Downtown website" loading="lazy"></span><span class="scr">Downtown</span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/walkfully">
-        <span class="line"><span class="scr">WalkFully</span><span class="slot" style="--s1:url('/images/px/walkfully-1.webp');--s2:url('/images/px/walkfully-2.webp');--s3:url('/images/px/walkfully-3.webp')"><img src="/images/walkfully.webp" alt="WalkFully website" loading="lazy"></span></span>
+      <a class="row" href="/work/walkfully" style="--s1:url('/images/px/walkfully-1.webp');--s2:url('/images/px/walkfully-2.webp');--s3:url('/images/px/walkfully-3.webp');--img:url('/images/walkfully.webp')">
+        <span class="line"><span class="scr">WalkFully</span><span class="slot"><img src="/images/walkfully.webp" alt="WalkFully website" loading="lazy"></span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/gss">
-        <span class="line"><span class="scr">Global</span><span class="slot slot--mid" style="--s1:url('/images/px/gss-1.webp');--s2:url('/images/px/gss-2.webp');--s3:url('/images/px/gss-3.webp')"><img src="/images/gss.webp" alt="Global Satellite Solutions website" loading="lazy"></span><span class="scr">Satellite Solutions</span></span>
+      <a class="row" href="/work/gss" style="--s1:url('/images/px/gss-1.webp');--s2:url('/images/px/gss-2.webp');--s3:url('/images/px/gss-3.webp');--img:url('/images/gss.webp')">
+        <span class="line"><span class="scr">Global</span><span class="slot slot--mid"><img src="/images/gss.webp" alt="Global Satellite Solutions website" loading="lazy"></span><span class="scr">Satellite Solutions</span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/timglas">
-        <span class="line"><span class="scr">Timglas</span><span class="slot" style="--s1:url('/images/px/timglas-1.webp');--s2:url('/images/px/timglas-2.webp');--s3:url('/images/px/timglas-3.webp')"><img src="/images/timglas.webp" alt="Timglas" loading="lazy"></span></span>
+      <a class="row" href="/work/timglas" style="--s1:url('/images/px/timglas-1.webp');--s2:url('/images/px/timglas-2.webp');--s3:url('/images/px/timglas-3.webp');--img:url('/images/timglas.webp')">
+        <span class="line"><span class="scr">Timglas</span><span class="slot"><img src="/images/timglas.webp" alt="Timglas" loading="lazy"></span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
-      <a class="row" href="/work/mimos">
-        <span class="line"><span class="scr">Mimos</span><span class="slot slot--mid" style="--s1:url('/images/px/mimos-1.webp');--s2:url('/images/px/mimos-2.webp');--s3:url('/images/px/mimos-3.webp')"><img src="/images/mimos.webp" alt="Mimos AI website" loading="lazy"></span><span class="scr">AI</span></span>
+      <a class="row" href="/work/mimos" style="--s1:url('/images/px/mimos-1.webp');--s2:url('/images/px/mimos-2.webp');--s3:url('/images/px/mimos-3.webp');--img:url('/images/mimos.webp')">
+        <span class="line"><span class="scr">Mimos</span><span class="slot slot--mid"><img src="/images/mimos.webp" alt="Mimos AI website" loading="lazy"></span><span class="scr">AI</span></span>
+        <span class="band" aria-hidden="true"></span>
       </a>
     </div>
   </section>
@@ -487,8 +518,24 @@
 </div>
 <script>
   (function () {
-    if (window.matchMedia("(hover: none)").matches) return;
     var rows = document.querySelectorAll(".index a.row");
+
+    if (window.matchMedia("(hover: none)").matches) {
+      // No hover to trigger the swatch, so light each row's image band instead.
+      if (!("IntersectionObserver" in window)) {
+        rows.forEach(function (row) { row.classList.add("lit"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("lit");
+          io.unobserve(entry.target);
+        });
+      }, { rootMargin: "0px 0px -12% 0px" });
+      rows.forEach(function (row) { io.observe(row); });
+      return;
+    }
 
     rows.forEach(function (row) {
       var segs = Array.prototype.map.call(row.querySelectorAll(".scr"), function (el) {
