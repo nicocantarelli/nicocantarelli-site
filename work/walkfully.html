@@ -92,6 +92,16 @@
   ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
   ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
 
+  /* summary box */
+  .summary { margin-top: 36px; border-top: 1px solid var(--hair); }
+  .summary > div {
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    padding: 16px 0; border-bottom: 1px solid var(--hair);
+  }
+  .summary dt { font-size: 1.05rem; color: var(--dim); }
+  .summary dd { font-size: 1.15rem; max-width: 62ch; }
+  .summary dd strong { font-weight: 600; }
+
   .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
   .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
   .next a:hover { border-color: var(--ink); }
@@ -117,6 +127,10 @@
     .prose p + p { margin-top: 14px; }
     ul.spec { font-size: 1rem; }
     ul.spec li { padding: 10px 0; }
+    .summary { margin-top: 26px; }
+    .summary > div { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+    .summary dt { font-size: 0.95rem; }
+    .summary dd { font-size: 1.05rem; }
     figure { margin: 28px 0 0; }
     figure.lead { margin: 32px 0 0; }
     figure.dia { overflow-x: auto; }
@@ -148,6 +162,25 @@
     Direct to consumer &middot; Shopify, Liquid, Klaviyo &middot; Lumios Digital &middot;
     <a href="https://walkfully.com" target="_blank" rel="noopener">walkfully.com</a>
   </p>
+
+  <dl class="summary">
+    <div>
+      <dt>My role</dt>
+      <dd>Shopify developer, at Lumios Digital. This store extends Haven, a commercial base theme, rather than starting from an empty one, and my job was everything built on top of it.</dd>
+    </div>
+    <div>
+      <dt>What I delivered</dt>
+      <dd>18 sections, 9 snippets and 4 templates, roughly 19,000 lines added across 60 files: an interactive science explorer, field notes, a journal, a customer gallery, programme pages and direct Klaviyo capture.</dd>
+    </div>
+    <div>
+      <dt>Why it mattered</dt>
+      <dd>The category has to be taught before it can be sold, so the budget went into the argument for the product rather than into rebuilding commerce. New sections use the base theme’s own conventions, so a merchant editing the store cannot tell where the seam is.</dd>
+    </div>
+    <div>
+      <dt>Current status</dt>
+      <dd><strong>Live and selling.</strong> Built at Lumios Digital between January and July 2026.</dd>
+    </div>
+  </dl>
 
   <figure class="lead">
     <img src="/images/work/walkfully-storefront.jpg" width="1760" height="1100" alt="WalkFully storefront">

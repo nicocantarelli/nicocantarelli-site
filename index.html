@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nicolas Cantarelli — Software Developer & Technical Project Lead</title>
-<meta name="description" content="Software developer and technical project lead. Full-stack web, e-commerce platforms, native macOS applications. Shopify, WordPress, React, Swift.">
+<title>Nicolas Cantarelli — Shopify &amp; Web Developer</title>
+<meta name="description" content="Shopify and web developer building custom themes, app extensions, WordPress platforms and web applications for brands, agencies and product teams. Available now.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
 <style>
@@ -84,17 +84,64 @@
   .hero { flex: 1; display: flex; align-items: center; padding: 40px 0; border-bottom: none; }
   .hero .hero-line {
     font-weight: 600;
-    font-size: clamp(2rem, 6.4vw, 6rem);
+    font-size: clamp(1.8rem, 5.2vw, 4.6rem);
     line-height: 1.04;
     letter-spacing: -0.03em;
-    max-width: 17ch;
+    max-width: 20ch;
   }
   .hero .hero-sub {
     margin-top: 32px;
     font-size: 1.35rem;
     line-height: 1.45;
     color: var(--dim);
+    max-width: 62ch;
   }
+  .hero .hero-avail {
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1.15rem; font-weight: 500;
+  }
+  .hero-avail .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ink); flex: none;
+  }
+
+  /* buttons */
+  .btns { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px;
+    border: 1px solid var(--ink); color: var(--ink);
+    text-decoration: none; font-size: 1.05rem; font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  .btn--solid { background: var(--ink); color: var(--bg); }
+  .btn--solid:hover { background: var(--bg); color: var(--ink); }
+
+  /* proof strip */
+  .proof {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    padding: 26px 0 34px; border-top: 1px solid var(--hair);
+  }
+  .proof-item { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .proof-cap {
+    font-size: 0.85rem; color: var(--dim);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .proof-val {
+    font-weight: 600; font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+    letter-spacing: -0.02em; line-height: 1.06;
+  }
+  .proof-val--text {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    letter-spacing: -0.01em; line-height: 1.25;
+  }
+
+  /* availability */
+  .avail-lead { font-size: 1.35rem; max-width: 52ch; }
+  .avail-list { list-style: none; margin-top: 26px; max-width: 52ch; font-size: 1.25rem; }
+  .avail-list li { padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--dim); }
+  .avail-list li:first-child { border-top: 1px solid var(--hair); }
 
   /* work index */
   .index { border-top: 1px solid var(--hair); }
@@ -212,8 +259,16 @@
     section { padding: 40px 0; }
     .label { font-size: 1.15rem; margin-bottom: 24px; }
     .hero { padding: 24px 0 40px; }
-    .hero .hero-sub { margin-top: 20px; font-size: 1.05rem; max-width: 36ch; }
+    .hero .hero-sub { margin-top: 20px; font-size: 1.05rem; max-width: 40ch; }
     .hero .hero-sub br { display: none; }
+    .hero .hero-avail { margin-top: 16px; font-size: 1rem; }
+    .btns { margin-top: 26px; gap: 10px; }
+    .btn { padding: 10px 16px; font-size: 0.95rem; }
+    .proof { grid-template-columns: repeat(2, 1fr); gap: 22px 16px; padding: 20px 0 26px; }
+    .proof-cap { font-size: 0.75rem; }
+    .avail-lead { font-size: 1.05rem; }
+    .avail-list { margin-top: 20px; font-size: 1rem; }
+    .avail-list li { padding: 10px 0; }
     .index a.row { padding: 1rem 0; }
     .strip { gap: 8px; }
     .strip-head { margin-bottom: 24px; }
@@ -241,6 +296,7 @@
         <a class="name" href="/">Nicolas Cantarelli</a>
         <nav>
           <a href="#work">Work</a>
+          <a href="#available">Available</a>
           <!-- <a href="/gallery">AI Gallery</a> -->
           <a href="#contact">Contact</a>
         </nav>
@@ -250,10 +306,38 @@
 
   <section class="hero">
     <div>
-      <p class="hero-line">I build digital products that work as well as they look.</p>
-      <p class="hero-sub">Software developer and technical project lead specialising in Shopify, <br>custom web development and native macOS applications. <br>From planning and UX to implementation, integrations and launch.</p>
+      <p class="hero-line">Shopify and web developer who ships complex, design-led products end to end.</p>
+      <p class="hero-sub">I build and maintain custom Shopify themes, app extensions, WordPress platforms and web applications for brands, agencies and product teams.</p>
+      <p class="hero-avail"><span class="dot" aria-hidden="true"></span>Available immediately for contract and full-time remote work.</p>
+      <p class="btns">
+        <a class="btn btn--solid" href="#work">View selected work</a>
+        <!-- Résumé button. Commit the PDF as /cv.pdf in the repo root, then delete
+             this comment's opening and closing markers to switch the button on.
+        <a class="btn" href="/cv.pdf" download>Download résumé</a>
+        -->
+        <a class="btn" href="mailto:hello@nicocantarelli.com">Email me</a>
+      </p>
     </div>
   </section>
+
+  <div class="proof">
+    <div class="proof-item">
+      <span class="proof-cap">Products delivered</span>
+      <span class="proof-val">50+</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-cap">Developed end to end</span>
+      <span class="proof-val">40+</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-cap">Core stack</span>
+      <span class="proof-val proof-val--text">Shopify, WordPress, React and Swift</span>
+    </div>
+    <div class="proof-item">
+      <span class="proof-cap">Languages</span>
+      <span class="proof-val proof-val--text">English, Spanish and Italian</span>
+    </div>
+  </div>
   </div>
 
   <section id="work">
@@ -292,14 +376,26 @@
        for gallery.html. Restore this block from git history to bring it back. -->
 
 
-  <section class="split">
-    <p class="label">Thesis</p>
-    <div class="prose thesis">
-      <p>Companies hiring someone to build a website or digital product usually face the same trade-off.</p>
-      <p>An agency gives you a team, but every layer adds cost, delay and distance between the people making decisions and the person building the product. A project manager speaks to an account lead, who speaks to a designer, who then hands the work to a developer who was not in the room when it was scoped. Context gets diluted at every handoff.</p>
-      <p>An execution-only freelancer gives you the opposite problem. The structure is leaner, but you become the strategist and project manager. You get what you specified rather than what the product needed, because nobody on the other side is responsible for seeing the whole thing.</p>
-      <p>I offer a third model: one person who takes responsibility from the first conversation through production and beyond. I scope the work, shape the architecture, design where needed, write the code, deploy it and support it. Nothing is handed off, so context stays intact and decisions move faster.</p>
-      <p>That model used to put a hard ceiling on what one person could deliver. It does not anymore. AI-assisted development compresses the mechanical parts of the work and leaves more room for judgment: what to build, how to structure it, where to simplify and what will still hold up a year from now.</p>
+  <section id="available" class="split">
+    <p class="label">Available immediately</p>
+    <div class="content-col">
+      <p class="avail-lead">I’m currently available for contract work, agency overflow and full-time remote roles.</p>
+      <ul class="avail-list">
+        <li>Custom Shopify themes and app extensions</li>
+        <li>WordPress and frontend development</li>
+        <li>Design-to-development implementation</li>
+        <li>Technical project leadership</li>
+        <li>Maintenance, integrations and launch support</li>
+      </ul>
+      <p class="btns">
+        <a class="btn btn--solid" href="mailto:hello@nicocantarelli.com">Email me</a>
+        <!-- Résumé button. Commit the PDF as /cv.pdf in the repo root, then delete
+             this comment's opening and closing markers to switch the button on.
+        <a class="btn" href="/cv.pdf" download>Download résumé</a>
+        -->
+        <a class="btn" href="https://www.linkedin.com/in/nicolascantarelli/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/nicocantarelli" target="_blank" rel="noopener">GitHub</a>
+      </p>
     </div>
   </section>
 
@@ -324,7 +420,7 @@
         <p>Scoping, architecture, integrations, testing, deployment and ongoing support from one accountable technical partner.</p>
       </div>
     </div>
-    <p class="avail">Available for freelance engagements, agency overflow and full-time remote roles. Contact for pricing.</p>
+    <p class="avail">Contact for scope and pricing.</p>
     </div>
   </section>
 
@@ -349,6 +445,17 @@
       <p>From 2023 to 2026, I co-founded and led development at Lumios Digital, delivering e-commerce stores, websites and digital products for international clients. I managed projects from discovery and technical scoping through development, testing, deployment and support.</p>
       <p>Today I work directly with brands, agencies and product teams across Shopify, WordPress, React and native macOS development. I’m equally comfortable implementing a polished design, solving a complex integration or owning the full project from initial requirements to launch.</p>
       <p>I speak English, Spanish and Italian and work remotely with teams across the Americas and Europe.</p>
+    </div>
+  </section>
+
+  <section class="split">
+    <p class="label">Thesis</p>
+    <div class="prose thesis">
+      <p>Companies hiring someone to build a website or digital product usually face the same trade-off.</p>
+      <p>An agency gives you a team, but every layer adds cost, delay and distance between the people making decisions and the person building the product. A project manager speaks to an account lead, who speaks to a designer, who then hands the work to a developer who was not in the room when it was scoped. Context gets diluted at every handoff.</p>
+      <p>An execution-only freelancer gives you the opposite problem. The structure is leaner, but you become the strategist and project manager. You get what you specified rather than what the product needed, because nobody on the other side is responsible for seeing the whole thing.</p>
+      <p>I offer a third model: one person who takes responsibility from the first conversation through production and beyond. I scope the work, shape the architecture, design where needed, write the code, deploy it and support it. Nothing is handed off, so context stays intact and decisions move faster.</p>
+      <p>That model used to put a hard ceiling on what one person could deliver. It does not anymore. AI-assisted development compresses the mechanical parts of the work and leaves more room for judgment: what to build, how to structure it, where to simplify and what will still hold up a year from now.</p>
     </div>
   </section>
 

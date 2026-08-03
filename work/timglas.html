@@ -93,6 +93,16 @@
   ul.spec { list-style: none; max-width: 62ch; font-size: 1.25rem; }
   ul.spec li { padding: 14px 0; border-bottom: 1px solid var(--hair); }
 
+  /* summary box */
+  .summary { margin-top: 36px; border-top: 1px solid var(--hair); }
+  .summary > div {
+    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    padding: 16px 0; border-bottom: 1px solid var(--hair);
+  }
+  .summary dt { font-size: 1.05rem; color: var(--dim); }
+  .summary dd { font-size: 1.15rem; max-width: 62ch; }
+  .summary dd strong { font-weight: 600; }
+
   .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
   .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
   .next a:hover { border-color: var(--ink); }
@@ -118,6 +128,10 @@
     .prose p + p { margin-top: 14px; }
     ul.spec { font-size: 1rem; }
     ul.spec li { padding: 10px 0; }
+    .summary { margin-top: 26px; }
+    .summary > div { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+    .summary dt { font-size: 0.95rem; }
+    .summary dd { font-size: 1.05rem; }
     figure { margin: 28px 0 0; }
     figure.lead { margin: 32px 0 0; }
     figure.dia { overflow-x: auto; }
@@ -150,6 +164,25 @@
     <a href="https://timglas.app" target="_blank" rel="noopener">timglas.app</a> &middot;
     <a href="https://github.com/nicocantarelli/timglas" target="_blank" rel="noopener">source</a>
   </p>
+
+  <dl class="summary">
+    <div>
+      <dt>My role</dt>
+      <dd>My own product rather than client work. Sole designer and developer.</dd>
+    </div>
+    <div>
+      <dt>What I delivered</dt>
+      <dd>A native macOS application, 87 Swift files and around 47,000 lines with no third-party dependencies: menu-bar and window modes, automatic tracking rules, idle resolution, local JSON storage with rotating backups and recovery, Shortcuts and Siri intents, a URL scheme, Spotlight indexing, CSV, JSON, iCal and PDF export, and 93 tests.</dd>
+    </div>
+    <div>
+      <dt>Why it mattered</dt>
+      <dd>Time data is only worth having if you would put it on an invoice. The app assumes people track imperfectly and makes correcting a day cheap, and it keeps everything local: no account, no backend, no telemetry.</dd>
+    </div>
+    <div>
+      <dt>Current status</dt>
+      <dd><strong>In active development and public on GitHub.</strong> It is the app I use to track my own work. Swift was a language I did not know when I started it.</dd>
+    </div>
+  </dl>
 
   <figure class="lead">
     <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%271600%27%20height=%271000%27%3E%3Crect%20width=%27100%%27%20height=%27100%%27%20fill=%27%23E8E8E5%27/%3E%3Ctext%20x=%2750%%27%20y=%2750%%27%20font-family=%27Helvetica,Arial,sans-serif%27%20font-size=%2734%27%20fill=%27%238E8E8A%27%20text-anchor=%27middle%27%20dominant-baseline=%27middle%27%3ETimglas%20in%20the%20menu%20bar%3C/text%3E%3C/svg%3E" alt="Timglas running in the macOS menu bar">
