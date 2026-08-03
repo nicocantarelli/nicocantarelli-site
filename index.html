@@ -68,12 +68,14 @@
   section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
   #work { border-bottom: none; }
   section.split {
-    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    display: grid; grid-template-columns: 30rem minmax(0, 1fr); gap: 40px;
     align-items: start;
   }
   section.split .label { margin-bottom: 0; }
-  section.split .content-col { max-width: 49.9rem; }
-  @media (max-width: 720px) {
+  section.split .content-col { min-width: 0; max-width: 49.9rem; }
+  /* Below this the 30rem label column leaves too little room beside it, so the
+     split stacks rather than squeezing the content into a narrow gutter. */
+  @media (max-width: 900px) {
     section.split { grid-template-columns: 1fr; gap: 20px; }
   }
   .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 36px; }
@@ -209,7 +211,7 @@
 
   /* services */
   .svc-row {
-    display: grid; grid-template-columns: 19rem 1fr; gap: 24px;
+    display: grid; grid-template-columns: 19rem minmax(0, 1fr); gap: 24px;
     padding: 24px 0; border-bottom: 1px solid var(--hair);
   }
   .svc-row h3 { font-size: 1.35rem; font-weight: 600; }
@@ -219,12 +221,19 @@
 
   /* currently */
   .now-line {
-    display: grid; grid-template-columns: 19rem 1fr; gap: 24px;
+    display: grid; grid-template-columns: 19rem minmax(0, 1fr); gap: 24px;
     padding: 24px 0; font-size: 1.25rem; color: var(--dim);
     border-bottom: 1px solid var(--hair);
   }
   .now-dot { font-weight: 600; font-size: 1.35rem; color: var(--ink); }
   @media (max-width: 640px) { .now-line { grid-template-columns: 1fr; gap: 6px; } }
+
+  /* Once the split is two columns again, the content column is still too narrow
+     to hold a second two-column grid until roughly 1100px. Stack these rows
+     through that band rather than overflow the page. */
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .svc-row, .now-line { grid-template-columns: 1fr; gap: 6px; }
+  }
   .now-link { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
   .now-link:hover { border-color: var(--ink); }
 

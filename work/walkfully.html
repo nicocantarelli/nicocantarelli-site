@@ -70,12 +70,14 @@
 
   section {
     padding: 56px 0; border-bottom: 1px solid var(--hair);
-    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    display: grid; grid-template-columns: 30rem minmax(0, 1fr); gap: 40px;
     align-items: start;
   }
   .label { font-size: 1.5rem; color: var(--dim); margin-bottom: 0; }
   .prose { max-width: 62ch; font-size: 1.35rem; }
-  @media (max-width: 720px) {
+  /* Below this the 30rem label column leaves too little room beside it, so the
+     section stacks rather than squeezing the content into a narrow gutter. */
+  @media (max-width: 900px) {
     section { grid-template-columns: 1fr; gap: 20px; }
     section > figure { grid-column: 1; }
   }
@@ -95,12 +97,15 @@
   /* summary box */
   .summary { margin-top: 36px; border-top: 1px solid var(--hair); }
   .summary > div {
-    display: grid; grid-template-columns: 30rem 1fr; gap: 40px;
+    display: grid; grid-template-columns: 30rem minmax(0, 1fr); gap: 40px;
     padding: 16px 0; border-bottom: 1px solid var(--hair);
   }
   .summary dt { font-size: 1.05rem; color: var(--dim); }
   .summary dd { font-size: 1.15rem; max-width: 62ch; }
   .summary dd strong { font-weight: 600; }
+  @media (max-width: 900px) {
+    .summary > div { grid-template-columns: 1fr; gap: 4px; }
+  }
 
   .next { padding: 48px 0 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 1.05rem; }
   .next a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hair); }
