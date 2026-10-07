@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baudie — Nicolas Cantarelli</title>
-<meta name="description" content="Custom Shopify storefront, checkout extension and discount function built for Baudie.">
+<meta name="description" content="Custom Shopify storefront, subscriptions, checkout extension and discount function built for Baudie.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
 <style>
@@ -173,11 +173,11 @@
     </div>
     <div>
       <dt>What I delivered</dt>
-      <dd>A custom Online Store 2.0 theme built from nothing, a bundle builder, an AJAX side cart, a Preact checkout UI extension and a WebAssembly discount function, plus Klaviyo, Gorgias and Videowise integrations.</dd>
+      <dd>A custom Online Store 2.0 theme built from nothing, two bundle builders, an AJAX side cart, Subscribe &amp; Save on Appstle with the purchase selector built into the theme, a Preact checkout UI extension and a WebAssembly discount function, plus Klaviyo, Gorgias and Videowise integrations.</dd>
     </div>
     <div>
       <dt>Why it mattered</dt>
-      <dd>The merchant launches products and campaigns without a developer, through 543 section settings and 30 product metafields. Pricing is decided server side, so a discount can never be rewritten in the browser.</dd>
+      <dd>The merchant launches products and campaigns without a developer, through 597 section settings and 33 product metafields. Pricing is decided server side, so a discount can never be rewritten in the browser, and the subscription price never stacks with a promo code or the upsell deal.</dd>
     </div>
     <div>
       <dt>Current status</dt>
@@ -193,7 +193,7 @@
     <p class="label">Scope</p>
     <div class="prose">
       <p>Baudie sells scented personal care products. The storefront is a custom Shopify theme built from nothing, no Dawn and no purchased base, designed at Lumios Digital and developed entirely by me. Every page on the site is one I built.</p>
-      <p>It runs to roughly 27,000 lines of Liquid across 45 sections, 23 templates and 14 snippets, and I still develop and maintain it.</p>
+      <p>It runs to roughly 31,500 lines of Liquid across 46 sections, 27 templates and 17 snippets, and I still develop and maintain it.</p>
     </div>
   </section>
 
@@ -212,8 +212,8 @@
   <section>
     <p class="label">What that meant in practice</p>
     <div class="prose">
-      <p>Every section is written to be reused rather than to serve one page. That shows up as <strong>543 settings across the section schemas</strong>, plus 21 repeatable block types. Copy, imagery, colors, layout direction, spacing, link targets and toggles are exposed in the theme editor rather than baked into the markup.</p>
-      <p>Product content is driven by <strong>30 metafields</strong> rather than hardcoded per product. Scent names and notes, bottle sizes, ingredient lists, how-to-use copy and video, card images, portrait crops, hover states, gradient colors, card background and text colors, and the bundle upsell target all live on the product. Adding a product means filling in fields, not writing a template.</p>
+      <p>Every section is written to be reused rather than to serve one page. That shows up as <strong>597 settings across the section schemas</strong>, plus 22 repeatable block types. Copy, imagery, colors, layout direction, spacing, link targets and toggles are exposed in the theme editor rather than baked into the markup.</p>
+      <p>Product content is driven by <strong>33 metafields</strong> rather than hardcoded per product. Scent names and notes, bottle sizes, ingredient lists, how-to-use copy and video, card images, portrait crops, hover states, gradient colors, card background and text colors, the bundle upsell target and a bundle's fixed components all live on the product. Adding a product means filling in fields, not writing a template.</p>
       <p>That combination is why the same section set produces genuinely different page types. The two clinical product lines do not use the standard product page at all; they use a landing page composition, built from the same parts.</p>
     </div>
   </section>
@@ -231,10 +231,28 @@
   </section>
 
   <section>
+    <p class="label">A second bundle</p>
+    <div class="prose">
+      <p>A duo followed: one scent the customer picks, paired with a fixed pack of wipes. It is its own section rather than an option on the first bundle, because Shopify concatenates every section's styles and scripts into shared theme-wide files. Shared class names would have duplicated every rule, and the new page's script would have hooked into the original bundle's page as well.</p>
+      <p>It also exposed a blind spot. Until checkout a bundle is a single cart line, so the theme cannot see inside it: the cart listed the scent but not the wipes, and offered wipes as an upsell to a customer who already had them. Both are answered from the product side. A product reference on the bundle names its fixed component for the cart card, and each upsell knows which bundles contain it, so the cart treats either as already there.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">Subscribe &amp; Save</p>
+    <div class="prose">
+      <p>The brand wanted subscriptions on its scents. Appstle runs the subscriptions themselves: billing, renewals, payment retries and the customer portal. The open question was how much of the storefront to hand over with them. Subscription apps ship their own widget that injects a selector into the product page. It is quick to switch on, and it puts a second piece of interface on the most important page in the store, styled by someone else and out of reach of the theme editor.</p>
+      <p>So the app's widget stays off and the theme renders the choice itself, from the product's selling plans. Eligible products, delivery frequencies and the discount are all edited in Appstle and only read by the theme. A product added to a plan gets the selector with no code change, and the saving shown on the page is generated from the plan rather than typed in, so it cannot drift from what checkout charges.</p>
+      <p>The dropdowns are a select-only combobox wrapped around the native select. The select stays the source of truth, so the existing cart and form code kept working untouched, and without JavaScript the customer simply gets the native control. The whole feature shipped behind two theme settings, so launch day is a settings change, not a deploy.</p>
+    </div>
+  </section>
+
+  <section>
     <p class="label">Cart</p>
     <div class="prose">
       <p>The side cart is the largest file in the theme. It is a full cart surface rather than a drawer that links to one: line item editing, quantity changes and add-to-cart all run against the Shopify AJAX API without a page load, with upsells rendered inline from product metafields.</p>
       <p>Getting this right matters more than it sounds. The cart is the last interface between a customer and a purchase, and every reload is somewhere to lose them.</p>
+      <p>Subscriptions raised that bar. A line can be switched between a one-time purchase and any delivery frequency from a dropdown on the cart card, and the change is optimistic: the label, price and subtotal update the moment it is picked, while a single request per line saves it in the background. The cart only redraws when it has to: when a switch merges two lines into one, or when a request fails and the real cart has to win.</p>
     </div>
   </section>
 
@@ -302,6 +320,7 @@
     <div class="prose">
       <p>The deal only applies when the cart also holds at least one product that is not an upsell. Buying the wipes on their own pays full price, which is the difference between an add-on and a permanently discounted product.</p>
       <p>Discounts are applied per item rather than per line, so any quantity lands exactly at the deal price. And it is deliberately one function rather than several: Shopify applies one automatic discount at a time, so splitting this across multiple discounts would have meant they compete. One function covers every upsell product and every quantity at once.</p>
+      <p>Subscriptions added another price to keep apart. A subscribed line already carries its subscription discount, so the function skips any line on a selling plan, while a subscription to a regular product still counts toward unlocking the deal. Promo codes are limited to one-time purchases, so the subscription price never stacks with either.</p>
     </div>
     <figure>
       <img src="/images/work/baudie-checkout.webp" width="2000" height="1250" alt="The upsell block in Shopify checkout" loading="lazy">
@@ -312,7 +331,8 @@
     <p class="label">Testing</p>
     <div class="prose">
       <p>Discount logic fails quietly. Nothing errors, nothing appears in a log, and the store sells at the wrong price until somebody notices it in the numbers weeks later.</p>
-      <p>The pricing and eligibility rules are covered by 25 unit tests, and the function itself by integration tests that build the WebAssembly module and run it against fixture carts: an empty cart, a cart of upsell products only, a cart that should qualify, and the cases where the discount class is absent. Every rule described above has a test that fails if someone changes it.</p>
+      <p>The pricing and eligibility rules are covered by 25 unit tests, and the function itself by integration tests that build the WebAssembly module and run it against fixture carts: an empty cart, a cart of upsell products only, a cart that should qualify, a subscribed upsell next to a one-time one, and the cases where the discount class is absent. Every pricing rule described above has a test that fails if someone changes it.</p>
+      <p>Subscriptions were tested end to end on a separate development store holding a copy of the catalog, because test payments on the live store would have meant closing its checkout to real customers. Every frequency, mixed carts, discount codes, real renewal orders, mobile, and the customer portal's skip, pause, resume, cancel and card update were run through before it shipped.</p>
     </div>
   </section>
 
@@ -324,6 +344,7 @@
       <li>Klaviyo, Gorgias and Videowise integrations</li>
       <li>Affiliate signup, customer care, cookie consent and legal page systems</li>
       <li>Back-in-stock notify form, review display, press and testimonial sections</li>
+      <li>Shop dropdown driven by the admin navigation, with keyboard, touch and focus-trap handling</li>
       <li>Releases through Shopify CLI, Git and GitHub</li>
     </ul>
   </section>
