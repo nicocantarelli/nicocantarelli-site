@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nicolas Cantarelli — Shopify &amp; Web Developer</title>
-<meta name="description" content="Shopify and web developer building custom themes, app extensions, WordPress platforms and web applications for brands, agencies and product teams. Available now.">
+<meta name="description" content="Shopify and web developer building custom themes, app extensions, WordPress platforms and web applications. Shopify developer at Inflection Growth, open to select freelance projects.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png">
 <style>
@@ -62,7 +62,6 @@
   nav { display: flex; gap: 28px; font-size: 1.15rem; }
   nav a { color: var(--dim); text-decoration: none; }
   nav a:hover, nav a[aria-current] { color: var(--ink); }
-  .role { margin-top: -6px; color: var(--dim); font-size: 1.05rem; }
 
   /* sections */
   section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
@@ -140,6 +139,17 @@
   .avail-list { list-style: none; margin-top: 26px; max-width: 52ch; font-size: 1.25rem; }
   .avail-list li { padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--dim); }
   .avail-list li:first-child { border-top: 1px solid var(--hair); }
+
+  /* brands */
+  .brands {
+    list-style: none; margin-top: 26px;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--hair);
+  }
+  .brands li {
+    padding: 14px 16px 14px 0; border-bottom: 1px solid var(--hair);
+    font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em;
+  }
 
   /* work index */
   .index { border-top: 1px solid var(--hair); }
@@ -282,7 +292,6 @@
     .wide { padding: 0 1.25rem; }
     header { padding: 32px 0 16px; }
     nav { gap: 20px; font-size: 1rem; }
-    .role { margin-top: 14px; font-size: 0.95rem; }
     section { padding: 40px 0; }
     .label { font-size: 1.15rem; margin-bottom: 24px; }
     .hero { padding: 44px 0 52px; }
@@ -296,6 +305,8 @@
     .avail-lead { font-size: 1.05rem; }
     .avail-list { margin-top: 20px; font-size: 1rem; }
     .avail-list li { padding: 10px 0; }
+    .brands { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 20px; }
+    .brands li { padding: 10px 12px 10px 0; font-size: 1rem; }
     .index a.row { padding: 1rem 0; }
     .strip { gap: 8px; }
     .strip-head { margin-bottom: 24px; }
@@ -327,14 +338,12 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
-      <p class="role">A software developer who is particularly good at turning strong design and business requirements into finished products.</p>
   </header>
 
   <section class="hero">
     <div>
-      <p class="hero-line">Shopify and web developer who ships complex, <span class="nb">design-led</span> products end to end.</p>
-      <p class="hero-sub">I build and maintain custom Shopify themes, app extensions, WordPress platforms and web applications for brands, agencies and product teams.</p>
-      <p class="hero-avail">Available immediately for contract and full-time remote work.</p>
+      <p class="hero-line">Shopify and web developer shipping <span class="nb">design-led</span> products end to end.</p>
+      <p class="hero-sub">Currently at <a class="now-link" href="#inflection">Inflection Growth</a>. Open to select freelance projects.</p>
       <p class="btns">
         <a class="btn btn--solid" href="#work">View selected work</a>
         <!-- Résumé button. Commit the PDF as /cv.pdf in the repo root, then delete
@@ -404,6 +413,19 @@
     </div>
   </section>
 
+  <section id="inflection" class="split">
+    <p class="label">Inflection Growth</p>
+    <div class="content-col">
+      <p class="avail-lead">Shopify developer at <a class="now-link" href="https://inflection-growth.com" target="_blank" rel="noopener">Inflection Growth</a>, a remote growth team for Shopify and Shopify Plus brands. Some of the brands we work with:</p>
+      <ul class="brands">
+        <li>Gopuff</li><li>AeroPress</li><li>Dyper</li><li>De La Calle</li>
+        <li>Kappa</li><li>Wolaco</li><li>Omie</li><li>Milky</li>
+        <li>Singer</li><li>Oros</li><li>Supermush</li><li>Alto</li>
+        <li>Viking</li><li>LoveUrSelf</li><li>Sun Ninja</li><li>School Health</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- AI gallery strip, commented out for now.
        Its <!- - strip:auto - -> markers went with it; scripts/build-gallery.mjs
        now skips a file with no strip region, so the gallery pipeline still runs
@@ -411,9 +433,9 @@
 
 
   <section id="available" class="split">
-    <p class="label">Available immediately</p>
+    <p class="label">Freelance</p>
     <div class="content-col">
-      <p class="avail-lead">I’m currently available for contract work, agency overflow and full-time remote roles.</p>
+      <p class="avail-lead">Alongside Inflection Growth, I take on a small number of freelance projects and agency overflow.</p>
       <ul class="avail-list">
         <li>Custom Shopify themes and app extensions</li>
         <li>WordPress and frontend development</li>
@@ -465,10 +487,6 @@
       <span class="now-dot">Baudie</span>
       <span>Developing and maintaining the production Shopify storefront: theme, subscriptions, checkout extension and discount function.</span>
     </div>
-    <div class="now-line">
-      <span class="now-dot">Timglas</span>
-      <span>Building a local-first time tracking app for macOS. <a class="now-link" href="https://github.com/nicocantarelli/timglas" target="_blank" rel="noopener">Public on GitHub</a>, in active development.</span>
-    </div>
     </div>
   </section>
 
@@ -477,7 +495,7 @@
     <div class="prose">
       <p>I’m a software developer and technical project lead based in Argentina, with time spent living and working in Berlin, Turin and Boston.</p>
       <p>From 2023 to 2026, I co-founded and led development at Lumios Digital, delivering e-commerce stores, websites and digital products for international clients. I managed projects from discovery and technical scoping through development, testing, deployment and support.</p>
-      <p>Today I work directly with brands, agencies and product teams across Shopify, WordPress, React and native macOS development. I’m equally comfortable implementing a polished design, solving a complex integration or owning the full project from initial requirements to launch.</p>
+      <p>Today I’m a Shopify developer at Inflection Growth, and I take on select freelance work across Shopify, WordPress, React and native macOS development. I’m equally comfortable implementing a polished design, solving a complex integration or owning the full project from initial requirements to launch.</p>
       <p>I speak English, Spanish and Italian and work remotely with teams across the Americas and Europe.</p>
     </div>
   </section>
