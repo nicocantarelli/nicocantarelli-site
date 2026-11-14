@@ -1,0 +1,24 @@
+# Nicolas Cantarelli
+
+> Shopify and web developer and technical project lead based in Argentina, working remotely with teams in the Americas and Europe. Shopify developer at Inflection Growth; takes on a small number of freelance projects. Speaks English, Spanish and Italian.
+
+## Services
+- Shopify development: custom Online Store 2.0 themes, app extensions, Shopify Functions, subscriptions, checkout extensions, storefront integrations
+- Custom web development: WordPress, React and Next.js
+- Design to development: pixel-accurate implementation from Figma, responsive, accessible, component-based
+- Technical delivery: scoping, architecture, integrations, testing, deployment and ongoing support
+
+## Selected work
+- [Baudie](https://nicocantarelli.com/work/baudie): Custom Shopify storefront, subscriptions, checkout extension and discount function built for Baudie.
+- [Global Satellite Solutions](https://nicocantarelli.com/work/gss): Hand-written WordPress theme designed and built for Global Satellite Solutions, makers of Viper, an inflight connectivity monitoring product.
+- [Harbour Bay Downtown](https://nicocantarelli.com/work/harbourbay): Custom WordPress block theme designed and built for Harbour Bay Downtown, a waterfront district in Batam, Indonesia.
+- [Mimos AI](https://nicocantarelli.com/work/mimos): Next.js launch site designed and built for Mimos AI, a pre-launch startup for visibility on AI platforms.
+- [Nirup Island](https://nicocantarelli.com/work/nirup): Custom WordPress theme for Nirup Island, a private island destination in the Riau Archipelago.
+- [Tashola](https://nicocantarelli.com/work/tashola): Custom Shopify theme designed and built from scratch for Tashola, a fashion boutique selling online and through a physical showroom.
+- [Timglas](https://nicocantarelli.com/work/timglas): Timglas, a local-first menu bar time tracker for macOS built in Swift, SwiftUI and AppKit with no third-party dependencies.
+- [WalkFully](https://nicocantarelli.com/work/walkfully): Brand and content layer built on a commercial Shopify theme for WalkFully, a direct to consumer weighted walking gear brand.
+
+## Contact
+- Email: hello@nicocantarelli.com
+- [GitHub](https://github.com/nicocantarelli)
+- [LinkedIn](https://www.linkedin.com/in/nicolascantarelli/)
