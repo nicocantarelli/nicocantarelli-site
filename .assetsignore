@@ -1,0 +1,15 @@
+.git
+.github
+.gitignore
+.assetsignore
+.wrangler
+.vercel
+.DS_Store
+node_modules
+package.json
+package-lock.json
+scripts
+README.md
+vercel.json
+wrangler.jsonc
+images/gallery/originals

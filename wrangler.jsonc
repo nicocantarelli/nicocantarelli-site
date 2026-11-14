@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nicocantarelli-site",
+  "compatibility_date": "2026-11-13",
+  "observability": { "enabled": true },
+  "assets": { "directory": ".", "html_handling": "auto-trailing-slash" }
+}
